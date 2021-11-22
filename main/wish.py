@@ -1,3 +1,5 @@
+import wishHundler
+
 
 
 def putWish(bot,message, keyBoard ):
@@ -9,3 +11,4 @@ def putWish(bot,message, keyBoard ):
                                  "та функціоналу боту", reply_markup=backHome)
     bot.send_message(message.chat.id,
                                 "🔺 Напишіть та відправте повідомлення звич способом," )
+    wishHundler.wishConditions(bot,message)
