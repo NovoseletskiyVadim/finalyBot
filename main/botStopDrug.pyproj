@@ -29,7 +29,25 @@
     <Compile Include="example.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="keyBoard.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="main.py" />
+    <Compile Include="startCommand.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="stopDrugsAudioHandler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="stopDrugsDocumentHandler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="stopDrugsMessageHandler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="stopDrugsPhotoHandler.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="wish.py">
       <SubType>Code</SubType>
     </Compile>
