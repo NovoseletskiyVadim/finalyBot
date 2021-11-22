@@ -2,7 +2,7 @@
 
 def wishConditions(bot, message):
 
-    @bot.message_hundler(content_types=["text","document","photo","audio"])
+    @bot.message_handler(content_types=["text","document","photo","audio"])
     def content_type_message(message):
         if message.content_type=="text":
             print("вы отправили текст")
@@ -17,5 +17,5 @@ def wishConditions(bot, message):
 
 
 
-            import wishHundler
+            
             
