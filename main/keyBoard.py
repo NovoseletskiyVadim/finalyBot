@@ -13,7 +13,7 @@ def myKeyBoard():
     markup=markup.add(item1,item2)
 
     service = telebot.types.ReplyKeyboardMarkup(True, True)
-    markup_back=service.row('/start')
+    markup_back=service.row('🔴 повернутися в головне меню')
 
     remove=types.ReplyKeyboardRemove()
 

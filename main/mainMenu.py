@@ -1,13 +1,12 @@
 
 
-def menu(bot, my_keyBoard):
+def menu(bot, my_keyBoard, message):
 
-    @bot.message_handler(commands=['/start'])
-    def welcome(message):
+   
 
         my_keyBoard[-1]
         
-        bot.send_message(
+        reply=bot.send_message(
             message.chat.id,
             "Ви в головному меню \n"+
             "виберіть будь ласка в меню наступний крок: \n"
@@ -16,3 +15,4 @@ def menu(bot, my_keyBoard):
             parse_mode='html',
             reply_markup=my_keyBoard[0]
            )
+        return reply

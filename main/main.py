@@ -18,7 +18,6 @@ def main():
 
     startCommand.start(bot, my_keyBoard)
 
-    mainMenu.menu(bot, my_keyBoard)
 
 
 
