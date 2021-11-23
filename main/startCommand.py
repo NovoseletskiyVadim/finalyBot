@@ -6,6 +6,9 @@ def start(bot, my_keyBoard):
     @bot.message_handler(commands=['start'])
     def welcome(message):
 
+
+        print("message from start",message)
+
         sti=open('sticker/AnimatedSticker1.tgs', 'rb')
         bot.send_sticker(message.chat.id,sti)
 

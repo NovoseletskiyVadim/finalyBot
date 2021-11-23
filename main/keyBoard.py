@@ -7,13 +7,13 @@ from telebot import types
 def myKeyBoard():
 
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item1=types.KeyboardButton("🔴 Залишити побажання")
-    item2=types.KeyboardButton("🔴 Повідомити про правопорушення" )
+    item1=types.KeyboardButton("🔴 інструкція із користування")
+    item2=types.KeyboardButton("🔴 інформація про правопорушення" )
 
     markup=markup.add(item1,item2)
 
     service = telebot.types.ReplyKeyboardMarkup(True, True)
-    markup_back=service.row('🔴 Повернутися у головне меню')
+    markup_back=service.row('/start')
 
     remove=types.ReplyKeyboardRemove()
 

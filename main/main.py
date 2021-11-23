@@ -2,6 +2,7 @@ import config
 import startCommand
 import keyBoard
 import stopDrugsMessageHandler
+import mainMenu
 
 import telebot
 import urllib.request # request нужен для загрузки файлов от пользователя
@@ -16,7 +17,12 @@ my_keyBoard=keyBoard.myKeyBoard()
 def main():
 
     startCommand.start(bot, my_keyBoard)
-    stopDrugsMessageHandler.textMessageHundler(bot, my_keyBoard)
+
+    mainMenu.menu(bot, my_keyBoard)
+
+
+
+    stopDrugsMessageHandler.drugsMessageHundler(bot, my_keyBoard)
 
    
 

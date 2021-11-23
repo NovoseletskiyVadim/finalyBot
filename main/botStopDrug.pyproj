@@ -33,6 +33,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.py" />
+    <Compile Include="mainMenu.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="startCommand.py">
       <SubType>Code</SubType>
     </Compile>
@@ -49,9 +52,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="wish.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="wishHundler.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
