@@ -15,8 +15,17 @@ def myKeyBoard():
     service = telebot.types.ReplyKeyboardMarkup(True, True)
     markup_back=service.row('🔴 повернутися в головне меню')
 
+    markupPhoto=telebot.types.ReplyKeyboardMarkup(True, True)
+    buttonsPhoto=markupPhoto.row('🔴 повернутися в головне меню')
+    buttonsPhoto=markupPhoto.row('🔴 пропустити')
+    buttonsPhoto=markupPhoto.row('🔴 перейти до фото')
+
+
+    
+
+
     remove=types.ReplyKeyboardRemove()
 
-    all_buttons=[markup,markup_back,remove]
+    all_buttons=[markup,markup_back,buttonsPhoto,remove]
 
     return all_buttons
