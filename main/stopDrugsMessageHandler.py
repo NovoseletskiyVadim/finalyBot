@@ -13,8 +13,6 @@ def drugsMessageHundler(bot, my_keyBoard):
        
         if message.chat.type == "private":
             print("message.chat.type==private")
-            #print("message.chat.type =",message.chat.type )
-            #print("message=",message.__str__())
             myBlock=[]
             
 
@@ -88,6 +86,21 @@ def drugsMessageHundler(bot, my_keyBoard):
                     while j<len(myBlock):
                         print(myBlock[j])
                         j+=1
+
+
+                elif message.text=="🔴 пропустити відправку фото":
+                    print ("команда пропустити відправку фото")
+                
+                elif message.text=="🔴 перейти до фото":
+                    print("команда перейти до фото")
+
+                elif message.text=="🔴 пропустити відправку GPS":
+                    print("команда пропустити выдправку GPS")
+
+                elif message.text=="🔴 перейти до GPS":
+                    print("команда перейти до GPS")
+
+
 
                 else:
                    if message.text!='none':

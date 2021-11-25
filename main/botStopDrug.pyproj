@@ -36,6 +36,9 @@
     <Compile Include="mainMenu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="sendMyText.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="startCommand.py">
       <SubType>Code</SubType>
     </Compile>

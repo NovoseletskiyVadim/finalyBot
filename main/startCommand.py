@@ -21,4 +21,5 @@ def start(bot, my_keyBoard):
             parse_mode='html',
             reply_markup=my_keyBoard[0]
            )
+        print("команда старт")
 
