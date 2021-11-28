@@ -7,11 +7,13 @@ import mainMenu
 import telebot
 import urllib.request # request нужен для загрузки файлов от пользователя
 #from telebot import types
-
+#from classes import InfoDrugs
 
 
 bot=telebot.TeleBot(config.TOKEN)
 my_keyBoard=keyBoard.myKeyBoard()
+
+InfoClass=[]
 
 
 def main():
@@ -21,7 +23,7 @@ def main():
 
 
 
-    stopDrugsMessageHandler.drugsMessageHundler(bot, my_keyBoard)
+    stopDrugsMessageHandler.drugsMessageHundler(bot, my_keyBoard, InfoClass)
 
    
 
