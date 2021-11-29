@@ -223,6 +223,8 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
    #                    longitude
    #                    latitude
+                        # широта (latitude) 49
+                        # долгота (longitude)32
                        
 
 
