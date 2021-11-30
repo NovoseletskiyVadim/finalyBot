@@ -20,9 +20,7 @@ def drugsMessageHundler(bot, my_keyBoard, array):
            
 
             if message.content_type=="text":
-                
-                     
-           
+                       
                 if message.text=="🔴 інструкція із користування":
                 
                   my_keyBoard[-1]
@@ -33,8 +31,6 @@ def drugsMessageHundler(bot, my_keyBoard, array):
                     
                     i=0
 
-                    print("состояние масства=", len(array))
-
                     if len(array)==0:
                             
                         info_drugs=InfoDrugs(message.chat.id)
@@ -43,7 +39,7 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                         array.append(info_drugs)
 
-                        print("запись доьавлена в массив")
+                        print("Добавлено заголовок повідомлення")
                     else:
 
                         while i< len(array): 
@@ -58,7 +54,7 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                                 array.append(info_drugs)
 
-                                print("запись доьавлена в массив")
+                                print("Добавлено заголовок повідомлення")
 
                                 break
                             i+=1
@@ -68,19 +64,17 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                     textButton=my_keyBoard[4]
 
-                    print("блок инфо про правопорушення")
-
                     bot.send_message(message.chat.id,
                                     "🔺 Ви перейшли в розділ де ви можете залишити інформацію про правопорушення \n\n "+
-                                    "Увага‼️  Щоб Ваше повідомлення було відправлено на обробку воно має складатися із 3 частин \n\n"+
-                                    "🔴 1.Текст (обовязкова частина повідомлення) \n\n"+
-                                    "🔶 2.Фото місця або скиншот з телефону (цей крок можна пропустити) \n\n"+
-                                    "🔶 3.GPS координати (цей крок можна пропустити) \n\n"+
+                                    "Увага‼️  Щоб Ваше повідомлення було відправлено на обробку воно має складатися із 3 частин: \n\n"+
+                                    "🔴 1️⃣ Текст (обовязкова частина повідомлення) \n\n"+
+                                    "🔶 2️⃣ Фото місця або скиншот з телефону (цей крок можна пропустити) \n\n"+
+                                    "🔶 3️⃣ GPS координати (цей крок можна пропустити) \n\n"+
                                     "Увага‼️ лише після цього сформоване повідомлення відправиться оператору на обробку \n\n"+
                                     "\n\n ",
                                     reply_markup=textButton)
 
-                elif message.text=="🔴 відмінити та повернутися в головне меню":
+                elif message.text=="🔴 все відмінити та повернутися в головне меню":
 
                     mainMenu.menu(bot,my_keyBoard,message)
 
@@ -96,34 +90,34 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                             my_keyBoard[-1]
                             
-                            keyBoardPhoto=my_keyBoard[2]
+                            keyBoardBack=my_keyBoard[1]
 
-                            bot.send_message(message.chat.id, "🔺 Напишіть спочатку текстове повідомлення та відправте його звичним в телеграмі способом",reply_markup=keyBoardPhoto)
+                            bot.send_message(message.chat.id, "🔺 Напишіть спочатку текстове повідомлення та відправте його звичним в телеграмі способом",reply_markup=keyBoardBack)
 
                             break
                         j+=1
-            
-                elif message.text=="🔴 перейти до фото":
+    
+                #elif message.text=="🔴 перейти до фото":
 
-                    w=0
+                #    w=0
 
-                    while w<len(array):
+                #    while w<len(array):
 
-                        if array[w].id_chat==message.chat.id and array[w].blockName=="🔴 інформація про правопорушення" and array[w].blockName!=0:
+                #        if array[w].id_chat==message.chat.id and array[w].blockName=="🔴 інформація про правопорушення" and array[w].blockName!=0:
 
-                                my_keyBoard[-1]
+                #                my_keyBoard[-1]
                             
-                                keyBoardPhoto=my_keyBoard[2]
+                #                keyBoardPhoto=my_keyBoard[2]
 
-                                bot.send_message(message.chat.id,"🔺 Ви можеге за бажанням додати до вашого повідомлення фото, або пропустити цей крок",reply_markup=keyBoardPhoto)
+                #                bot.send_message(message.chat.id,"🔺 Ви можеге за бажанням додати до вашого повідомлення фото, або ↪️ пропустити цей крок",reply_markup=keyBoardPhoto)
 
-                                break
-                        w+=1
+                #                break
+                #        w+=1
 
                 elif message.text=="🔴 пропустити відправку GPS":
                     print("команда пропустити выдправку GPS")
 
-                elif message.text=="🔴 перейти до GPS" or message.text=="🔴 пропустити відправку фото":
+                elif message.text=="🔴 пропустити відправку фото":
                     print("команда перейти до GPS")
 
                     my_keyBoard[-1]
@@ -134,22 +128,55 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                     while s<len(array):
                     
-                        if array[s].id_chat==message.chat.id and array[s].blockName=="🔴 інформація про правопорушення" and array[s].textAboutDrugs!=0:
+                        if array[s].id_chat==message.chat.id and array[s].blockName=="🔴 інформація про правопорушення" and array[s].textDrugs!=0:
                                 
                             
-                            if array[s].photoDrugs==0:
+                            #if array[s].photoDrugs==0:
 
-                                array[s].photoDrugs="🔴 додавання фото пропущено"
+                            array[s].photoDrugs="🔴 додавання фото пропущено"
 
-                            bot.send_message(message.chat.id, "🔺 Ви можеге за бажанням додати до вашого повідомлення GPS координати місця повязаного з наркотиками або пропустити цей крок \n" )
+                            bot.send_message(message.chat.id, "❌ повідомлення без  фото\n🔺 Ви можеге за бажанням додати до вашого повідомлення GPS координати місця повязаного з наркотиками або пропустити цей крок \n" )
                             bot.send_message(message.chat.id, "Увага ❗️❗️❗️ Дана можливість доступа тільки користувачам мобільних телефонів та планшетів. \n Якщо ви відправляете повідомлення з компьюьер",reply_markup=keyBoardEND)
 
-                            print("GPS=",keyBoardEND)                            
+                            #print("GPS=",keyBoardEND)                            
 
                             break
 
+                        s+=1
 
-                
+
+                else:
+
+                    if len(array)!=0:
+                        y=0
+
+                        while y<len(array):
+
+                            if array[y].id_chat==message.chat.id and array[y].blockName=="🔴 інформація про правопорушення":
+
+                                my_keyBoard[-1]
+                            
+                                keyBoardPhoto=my_keyBoard[2]
+
+                                if len(message.text)>15:
+
+                                    array[y].textDrugs=message.text
+
+                                    bot.send_message(message.chat.id, "✅ Ваше текстове повідомлення збережено\n\n🔺 📷 наступний крок: ФОТО \n\nВи можеге за бажанням додати до вашого повідомлення 📷 фото, або ↪️ пропустити цей крок",reply_markup=keyBoardPhoto)
+                                else:
+
+                                    my_keyBoard[-1]
+                            
+                                    keyBoardHome=my_keyBoard[1]
+
+                                    bot.send_message(message.chat.id,"Увага ❗️❗️❗️ \n\n❌ Помилка. Ви маєте  спочатку написати та відправити коротке текстове повідомлення",reply_markup=keyBoardHome )
+
+                            y+=1
+
+                                
+
+                    else:
+                        bot.send_message(message.chat.id, ' Я не знаю що відповісти😢 \n Виберіть та натисніть\n\n👉 🔴 інструкція із користування\n\nабо\n\n👉 🔴 інформація про правопорушення')
                
 
 
@@ -160,28 +187,24 @@ def drugsMessageHundler(bot, my_keyBoard, array):
                 h=0
 
                 while h<len(array):
-
-                    #print("id_chat={0} \n blockName={1} \n textAboutDrugs={2}".format(array[h].id_chat,array[h].blockName,array[h].textAboutDrugs ))
                     
                     if array[h].id_chat==message.chat.id and array[h].blockName=="🔴 інформація про правопорушення" and array[h].textDrugs!=0:
-
-                        #print("блок обработки фото: жльавление фото  ") 
                         
                         my_keyBoard[-1]
                             
-                        keyBoardGPS=my_keyBoard[3]
+                        keyBoardGPS=my_keyBoard[5]
 
-                        document_id = message.photo[-1]
-                        print("document_id=", document_id)
+                        photo_id = message.photo[-1]
+                        #print("photo_id=", photo_id)
                         
     
-                        file_info = bot.get_file(document_id.file_id)
+                        file_info = bot.get_file(photo_id.file_id)
 
-                        print ("file info=", file_info)
+                        #print ("file info=", file_info)
 
                         array[h].photoDrugs="http://api.telegram.org/file/bot{0}/{1}".format(config.TOKEN, file_info.file_path)
 
-                        bot.send_message(message.chat.id, " ✅ фото додано до вашого повідомлення",reply_markup=keyBoardGPS)
+                        bot.send_message(message.chat.id, " ✅ фото додано до вашого повідомлення \n🔺 Ви можеге за бажанням додати до вашого повідомлення GPS координати місця повязаного з наркотиками або пропустити цей крок \n",reply_markup=keyBoardGPS)
 
                         break
                     h+=1
@@ -195,7 +218,7 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                     while q<len(array):
                     
-                        if array[q].id_chat==message.chat.id and array[q].blockName=="🔴 інформація про правопорушення" and array[q].textAboutDrugs!=0 and array[q].photoDrugs!=0 and array[q].gpsAboutDrugs==0:
+                        if array[q].id_chat==message.chat.id and array[q].blockName=="🔴 інформація про правопорушення" and array[q].textDrugs!=0 and array[q].photoDrugs!=0 and array[q].gpsAboutDrugs==0:
 
                             array[q].longitude=message.location.longitude
 
@@ -203,9 +226,15 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                             array[q].gpsAboutDrugs="https://www.google.com/maps?q=loc:{0},{1}".format(array[q].latitude, array[q].longitude)
 
-                            photoField, GPSfield=checkField.check_value(array[q])
+                            textField, photoField, GPSfield=checkField.check_value(array[q])
 
-                            bot.send_message(config.Chanel_2, "Назва : {0}\n\n {1}\n {2}\n\n {3}\n {4}".format(array[q].blockName, photoField, array[q].photoDrugs, GPSfield, array[q].gpsAboutDrugs)) 
+                            bot.send_message(config.Chanel_2, "Назва : {0}\n\n {1}\n {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n".format(array[q].blockName,
+                                                                                                              textField,
+                                                                                                              array[q].textDrugs,
+                                                                                                              photoField,
+                                                                                                              array[q].photoDrugs,
+                                                                                                              GPSfield,
+                                                                                                              array[q].gpsAboutDrugs)) 
                             
                             break
 
@@ -226,6 +255,5 @@ def drugsMessageHundler(bot, my_keyBoard, array):
                         # долгота (longitude)32
 
 
-            else:
-               bot.send_message(message.chat.id, '2 Я не знаю що відповісти😢 \n Виберіть та натисніть  будь ласка клавішу ')
+            
             

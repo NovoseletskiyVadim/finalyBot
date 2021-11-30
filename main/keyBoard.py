@@ -14,31 +14,32 @@ def myKeyBoard():
     
     #[1]
     service = telebot.types.ReplyKeyboardMarkup(True, True)
-    markup_back=service.row('🔴 відмінити та повернутися в головне меню')
+    markup_back=service.row('🔴 все відмінити та повернутися в головне меню')
 
     #[2]
     markupPhoto=telebot.types.ReplyKeyboardMarkup(True, True)
-    buttonsPhoto=markupPhoto.row('🔴 відмінити та повернутися в головне меню')
+    buttonsPhoto=markupPhoto.row('🔴 все відмінити та повернутися в головне меню')
     buttonsPhoto=markupPhoto.row('🔴 пропустити відправку фото')
-    buttonsPhoto=markupPhoto.row('🔴 перейти до фото')
+    #buttonsPhoto=markupPhoto.row('🔴 перейти до фото')
 
     #[3]
     markupGPS=types.ReplyKeyboardMarkup(True, True)
-    buttonsGPS=markupGPS.row('🔴 відмінити та повернутися в головне меню')
+    buttonsGPS=markupGPS.row('🔴 все відмінити та повернутися в головне меню')
     buttonsGPS=markupGPS.row('🔴 пропустити відправку GPS')
-    buttonsGPS=markupGPS.row('🔴 перейти до GPS')
+    #buttonsGPS=markupGPS.row('🔴 перейти до GPS')
 
     #[4]
     markupText=telebot.types.ReplyKeyboardMarkup(True, True)
-    buttonsText=markupText.row('🔴 відмінити та повернутися в головне меню')
+    buttonsText=markupText.row('🔴 все відмінити та повернутися в головне меню')
     buttonsText=markupText.row('🔴 перейти до повідомлення')
 
     #[5]
-    markupEND=types.ReplyKeyboardMarkup()
-    item4=types.KeyboardButton("🔴 я відправляю з компьтера")
-    item5=types.KeyboardButton("🔴 відправити GPS", request_location=True)
+    markupEND=types.ReplyKeyboardMarkup(resize_keyboard=False)
+    item4=types.KeyboardButton("🔴 все відмінити та повернутися в головне меню")
+    item5=types.KeyboardButton("🔴 пропустити відправку GPS")
+    item6=types.KeyboardButton("🔴 відправити GPS", request_location=True)
 
-    markup_end=markupEND.add(item4,item5)
+    markup_end=markupEND.add(item4,item5,item6)
 
 
 

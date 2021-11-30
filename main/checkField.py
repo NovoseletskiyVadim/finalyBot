@@ -2,6 +2,7 @@
 
 def check_value(objForm):
 
+    infoAboutText="🟢 текст повідомлення:"
     infoAboutPhoto="🟢 фото місця :"
     infoAboutGPS="🟢 GPS координати місця :"
 
@@ -13,6 +14,6 @@ def check_value(objForm):
 
         infoAboutGPS="🔴 GPS координати місця : "
 
-    return infoAboutPhoto , infoAboutGPS
+    return infoAboutText, infoAboutPhoto , infoAboutGPS
 
 
