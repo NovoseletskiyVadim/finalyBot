@@ -67,6 +67,11 @@
   <ItemGroup>
     <Content Include="requirements.txt" />
     <Content Include="sticker\AnimatedSticker1.tgs" />
+    <Content Include="sticker\attention.tgs" />
+    <Content Include="sticker\dontKnow.tgs" />
+    <Content Include="sticker\helloBot.tgs" />
+    <Content Include="sticker\kat1.tgs" />
+    <Content Include="sticker\mailGood.tgs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sticker\" />

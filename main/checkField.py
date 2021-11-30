@@ -2,11 +2,12 @@
 
 def check_value(objForm):
 
-    infoAboutText="🟢 текст повідомлення:"
+    infoAboutText="🟢 текст :"
+    infoAboutBlock="🔺 📬 інформація про наркотики"
     infoAboutPhoto="🟢 фото місця :"
     infoAboutGPS="🟢 GPS координати місця :"
 
-    if objForm.photoDrugs=="🔴 додавання фото пропущено":
+    if objForm.photoDrugs=="додавання фото пропущено":
         
         infoAboutPhoto="🔴 фото місця :"
 
@@ -14,6 +15,9 @@ def check_value(objForm):
 
         infoAboutGPS="🔴 GPS координати місця : "
 
-    return infoAboutText, infoAboutPhoto , infoAboutGPS
+
+        
+
+    return infoAboutBlock, infoAboutText, infoAboutPhoto , infoAboutGPS
 
 
