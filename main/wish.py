@@ -4,13 +4,13 @@ def putWish(bot,message, keyBoard ):
 
     backHome=keyBoard[1]
 
-    bot.send_message(message.chat.id,"🔺 Розділ де ви можете залишити ваші побажання \n"+
-                                 " щодо зручності користування \n "+
-                                 "та функціоналу боту", reply_markup=backHome)
-    bot.send_message(message.chat.id,
-                                "🔺 Напишіть та відправте повідомлення звич способом," )
-    bot.send_message("-255849345", message.text)
+    
 
+    bot.send_message(message.chat.id,"🔺 Вибачте, даний розділ зараз розробляється ", reply_markup=backHome)
+
+    sti=open('sticker/catFlirt.tgs', 'rb')
+    bot.send_sticker(message.chat.id,sti)
+   
    
     
     

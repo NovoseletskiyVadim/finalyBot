@@ -13,6 +13,8 @@ class InfoDrugs :
         print("обьект {0} удален из памяти".format(self.id_chat))
 
     blockName=0
+
+    startWork=0
     
     textDrugs=0
 

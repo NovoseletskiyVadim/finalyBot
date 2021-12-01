@@ -31,7 +31,7 @@ def myKeyBoard():
     #[4]
     markupText=telebot.types.ReplyKeyboardMarkup(True, True)
     buttonsText=markupText.row('🔴 все відмінити та повернутися в головне меню')
-    buttonsText=markupText.row('🔴 перейти до повідомлення')
+    buttonsText=markupText.row('🔴 розпочати роботу')
 
     #[5]
     markupEND=types.ReplyKeyboardMarkup(resize_keyboard=False)

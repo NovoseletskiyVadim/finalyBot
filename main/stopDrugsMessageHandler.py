@@ -2,8 +2,13 @@ import wish
 import mainMenu
 import config
 import checkField
+import locationHandler
+import photoHandler
+import textHandler
+import formHandler
+import createTextMessageButtonHandler
 
-from classes import InfoDrugs
+#from classes import InfoDrugs
 
 
 def drugsMessageHundler(bot, my_keyBoard, array):
@@ -29,217 +34,62 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                 elif message.text== "🔴 інформація про правопорушення":
                     
-                    i=0
-
-                    if len(array)==0:
-                            
-                        info_drugs=InfoDrugs(message.chat.id)
-                            
-                        info_drugs.blockName="🔴 інформація про правопорушення"
-
-                        array.append(info_drugs)
-
-                        print("Добавлено заголовок повідомлення")
-                    else:
-
-                        while i< len(array): 
-                        
-                            if array[i].id_chat==message.chat.id:
-
-                                array.remove(array[i])
-
-                                info_drugs=InfoDrugs(message.chat.id)
-                            
-                                info_drugs.blockName="🔴 інформація про правопорушення"
-
-                                array.append(info_drugs)
-
-                                print("Добавлено заголовок повідомлення")
-
-                                break
-                            i+=1
-
-              
-                    my_keyBoard[-1]
-
-                    textButton=my_keyBoard[4]
-
-                    bot.send_message(message.chat.id,
-                                    "🔺 Ви перейшли в розділ де ви можете залишити інформацію про правопорушення \n\n "+
-                                    "🟡 Увага‼️  Щоб Ваше повідомлення було відправлено на обробку воно має складатися із 3️⃣ х частин: \n\n"+
-                                    "🔴 1️⃣ Текст (обовязкова частина повідомлення) \n\n"+
-                                    "🔹 2️⃣ Фото місця або скиншот з телефону (цей крок можна пропустити) \n\n"+
-                                    "🔹 3️⃣ GPS координати (цей крок можна пропустити) \n\n"+
-                                    "🟡 Увага‼️ лише після цього сформоване повідомлення відправиться оператору на обробку \n\n"+
-                                    "\n\n ",
-                                    reply_markup=textButton)
+                    #создание формы сообщения
+                    formHandler.create_form(bot, message, my_keyBoard, array)
 
                 elif message.text=="🔴 все відмінити та повернутися в головне меню":
 
-                    mainMenu.menu(bot,my_keyBoard,message)
+                    #обработка кнопки "отменить "
+                    mainMenu.menu(bot,my_keyBoard,message, array)
 
-                elif message.text=="🔴 перейти до повідомлення" :
+                elif message.text=="🔴 розпочати роботу" :
 
-                    print("блок перейти до повідомлення+++ ")
-
-                    j=0
-
-                    while j<len(array):
-
-                        if array[j].id_chat==message.chat.id and array[j].blockName=="🔴 інформація про правопорушення":
-
-                            my_keyBoard[-1]
-                            
-                            keyBoardBack=my_keyBoard[1]
-
-                            bot.send_message(message.chat.id, "🔺 Напишіть спочатку 📝 текстове повідомлення та відправте його звичним в телеграмі способом 📤",reply_markup=keyBoardBack)
-
-                            break
-                        j+=1
+                    #обработка кнопки "начать работу"
+                    createTextMessageButtonHandler.message_text(bot, message, my_keyBoard, array)
     
                 elif message.text=="🔴 пропустити відправку GPS":
+
                     print("команда пропустити выдправку GPS")
+
+                    backHome=keyBoard[1]
+
+    
+
+                    bot.send_message(message.chat.id,"🔺 Вибачте, даний розділ зараз розробляється ", reply_markup=backHome)
+
+                    sti=open('sticker/catFlirt.tgs', 'rb')
+                    bot.send_sticker(message.chat.id,sti)
 
                 elif message.text=="🔴 пропустити відправку фото":
 
-                    my_keyBoard[-1]
-                            
-                    keyBoardEND=my_keyBoard[5]
-
-                    s=0
-
-                    while s<len(array):
-                    
-                        if array[s].id_chat==message.chat.id and array[s].blockName=="🔴 інформація про правопорушення" and array[s].textDrugs!=0:
-                                
-                            array[s].photoDrugs="додавання фото пропущено"
-
-                            bot.send_message(message.chat.id, "❌ додавання фото пропущено\n\n🔺 🌐 Наступний крок: 📡 GPS \n\nℹ️ Ви можеге за бажанням додати до вашого повідомлення 📡 GPS координати місця повязаного з наркотиками чи пропустити цей крок \n" )
-                            bot.send_message(message.chat.id, "🟡 Увага ❗️❗️❗️ Дана можливість доступа тільки користувачам мобільних телефонів та планшетів. \n",reply_markup=keyBoardEND)
-
-
-                            break
-
-                        s+=1
+                    #обработка (прпустить отправку фото)
+                    photoHandler.skip_photo(bot, message, my_keyBoard, array)
 
 
                 else:
 
-                    if len(array)!=0:
-                        y=0
-
-                        while y<len(array):
-
-                            if array[y].id_chat==message.chat.id and array[y].blockName=="🔴 інформація про правопорушення" and array[y].textDrugs==0:
-
-                                my_keyBoard[-1]
-                            
-                                keyBoardPhoto=my_keyBoard[2]
-
-                                if len(message.text)>15:
-
-                                    array[y].textDrugs=message.text
-
-                                    bot.send_message(message.chat.id, "✅ Ваше текстове повідомлення  збережено\n\n🔺 📷 наступний крок: ФОТО \n\nℹ️ Ви можеге за бажанням додати до вашого повідомлення 📷 фото,та відправити його звичайним способом, або ↪️ пропустити цей крок",reply_markup=keyBoardPhoto)
-                                else:
-
-                                    my_keyBoard[-1]
-                            
-                                    keyBoardHome=my_keyBoard[1]
-
-                                    bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n⛔️ Помилка. Ви маєте  спочатку обов'язково 🖨⌨️ написати та відправити коротке текстове повідомлення(🔸 мінімальний об'єм тексту від 15 символів)",reply_markup=keyBoardHome )
-
-                            elif array[y].id_chat==message.chat.id and array[y].blockName=="🔴 інформація про правопорушення" and array[y].textDrugs!=0:
-
-                                my_keyBoard[-1]
-                            
-                                keyBoardPhoto=my_keyBoard[2]
-
-                                bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n⛔️ Помилка.\n\n✅ Текст повідомлення Вами вже збережено ❗️\n\n🔺 📷 наступний крок: ФОТО \n\nℹ️ Ви можеге за бажанням додати до вашого повідомлення 📷 фото,та відправити його звичайним способом, або ↪️ пропустити цей крок ",reply_markup=keyBoardPhoto )    
-
-                            y+=1
-
-                                
-
-                    else:
-                        bot.send_message(message.chat.id, ' Я не знаю що відповісти😢 \n Виберіть та натисніть\n\n👉 🔴 інструкція із користування\n\nабо\n\n👉 🔴 інформація про правопорушення')
-               
+                    #обработка отправки тестового соопщения 
+                    textHandler.text_processing(bot, message, my_keyBoard, array)
+                                   
 
 
             elif message.content_type=="photo":
 
+                #обработка отправки фото 
+                photoHandler.photo_processing(bot, message, my_keyBoard, array)
 
-
-                h=0
-
-                while h<len(array):
-                    
-                    if array[h].id_chat==message.chat.id and array[h].blockName=="🔴 інформація про правопорушення" and array[h].textDrugs!=0:
-                        
-                        my_keyBoard[-1]
-                            
-                        keyBoardGPS=my_keyBoard[5]
-
-                        photo_id = message.photo[-1]
-                        #print("photo_id=", photo_id)
-                        
-    
-                        file_info = bot.get_file(photo_id.file_id)
-
-                        #print ("file info=", file_info)
-
-                        array[h].photoDrugs="http://api.telegram.org/file/bot{0}/{1}".format(config.TOKEN, file_info.file_path)
-
-                        bot.send_message(message.chat.id, " ✅ фото додано до вашого повідомлення \n\n🔺 🌐 Наступний крок:📡 GPS \n\nℹ️ Ви можеге за бажанням додати до вашого повідомлення 📡 GPS координати місця повязаного з наркотиками чи пропустити цей крок \n",reply_markup=keyBoardGPS)
-
-                        break
-                    h+=1
+                
 
             
             elif message.content_type=="location":
-
-                try:
-
-                    q=0
-
-                    while q<len(array):
-                    
-                        if array[q].id_chat==message.chat.id and array[q].blockName=="🔴 інформація про правопорушення" and array[q].textDrugs!=0 and array[q].photoDrugs!=0 and array[q].gpsAboutDrugs==0:
-
-                            array[q].longitude=message.location.longitude
-
-                            array[q].latitude=message.location.latitude
-
-                            array[q].gpsAboutDrugs="https://www.google.com/maps?q=loc:{0},{1}".format(array[q].latitude, array[q].longitude)
-
-                            nameBlock, textField, photoField, GPSfield=checkField.check_value(array[q])
-
-                            bot.send_message(config.Chanel_2, "{0}\n\n {1}\n {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n".format(nameBlock,
-                                                                                                              textField,
-                                                                                                              array[q].textDrugs,
-                                                                                                              photoField,
-                                                                                                              array[q].photoDrugs,
-                                                                                                              GPSfield,
-                                                                                                              array[q].gpsAboutDrugs)) 
-                            
-                            break
-
-                        q+=1
-                except Exception as e:
-                    print(repr(e))
-
-                finally:
-
-                    mainMenu.menu(bot,my_keyBoard,message)
+                
+                #Обработка отправки GPS
+                locationHandler.gps_processing(bot, message, my_keyBoard, array)
+               
 
 
 
-
-                        #print("location=",array[q].gpsAboutDrugs)
-
-                        # широта (latitude) 49
-                        # долгота (longitude)32
-
+                        
 
             
             
