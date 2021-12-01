@@ -19,7 +19,7 @@ def start(bot, my_keyBoard, array):
                 if array[m].id_chat==message.chat.id:
                     array.remove(array[m])
                     break
-                l+=1
+                m+=1
   
         bot.send_message(
             message.chat.id,

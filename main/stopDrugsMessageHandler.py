@@ -51,7 +51,7 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                     print("команда пропустити выдправку GPS")
 
-                    backHome=keyBoard[1]
+                    backHome=my_keyBoard[1]
 
     
 
