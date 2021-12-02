@@ -7,13 +7,20 @@ def check_value(objForm):
     infoAboutPhoto="🟢 фото місця :"
     infoAboutGPS="🟢 GPS координати місця :"
 
-    if objForm.photoDrugs=="додавання фото пропущено":
+    if objForm.photoDrugs=="додавання фото пропущено" and objForm.gpsAboutDrugs=="додавання GPS пропущено" :
         
         infoAboutPhoto="🔴 фото місця :"
+        infoAboutGPS="🔴 GPS координати місця :"
 
-    elif objForm.gpsAboutDrugs=="🔴 пропустити відправку GPS":
+    elif objForm.photoDrugs=="додавання фото пропущено":
+
+        infoAboutPhoto="🔴 фото місця :"
+
+    elif objForm.gpsAboutDrugs=="додавання GPS пропущено":
 
         infoAboutGPS="🔴 GPS координати місця : "
+
+        print("infoAboutGPS=",infoAboutGPS)
 
 
         
