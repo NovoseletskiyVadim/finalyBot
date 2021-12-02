@@ -94,3 +94,4 @@ def skipGPS(bot, message, my_keyBoard, array):
         print(repr(e))
     finally:
         print("finaly")
+        mainMenu.menu(bot,my_keyBoard,message, array)
