@@ -52,10 +52,8 @@ def drugsMessageHundler(bot, my_keyBoard, array):
     
                 elif message.text=="🔴 пропустити відправку GPS":
 
-                    print("команда пропустити выдправку GPS")
-
-                    sorry.sorry_message(bot, message, my_keyBoard)
-
+                    #обработка "пропустить отправку GPS"
+                    locationHandler.skipGPS(bot, message, my_keyBoard, array)
 
                 elif message.text=="🔴 пропустити відправку фото":
 
