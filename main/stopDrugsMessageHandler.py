@@ -7,10 +7,13 @@ import photoHandler
 import textHandler
 import formHandler
 import createTextMessageButtonHandler
+import sorry
 
 #from classes import InfoDrugs
 
+# обработчик всего входящего контента 
 
+ 
 def drugsMessageHundler(bot, my_keyBoard, array):
 
 
@@ -51,14 +54,8 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
                     print("команда пропустити выдправку GPS")
 
-                    backHome=my_keyBoard[1]
+                    sorry.sorry_message(bot, message, my_keyBoard)
 
-    
-
-                    bot.send_message(message.chat.id,"🔺 Вибачте, даний розділ зараз розробляється ", reply_markup=backHome)
-
-                    sti=open('sticker/catFlirt.tgs', 'rb')
-                    bot.send_sticker(message.chat.id,sti)
 
                 elif message.text=="🔴 пропустити відправку фото":
 
