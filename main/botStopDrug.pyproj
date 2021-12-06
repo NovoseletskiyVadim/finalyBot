@@ -51,6 +51,9 @@
     <Compile Include="mainMenu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="saveSubscribers.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="sorry.py">
       <SubType>Code</SubType>
     </Compile>

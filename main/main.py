@@ -11,14 +11,24 @@ import urllib.request # request нужен для загрузки файлов 
 
 
 bot=telebot.TeleBot(config.TOKEN)
+
+#массив кнопок бота
+
 my_keyBoard=keyBoard.myKeyBoard()
+
+# временный массив для хранения не отправленных форм
+# когда пользователь начал оформлять свое сообщение оператору 
 
 InfoClass=[]
 
 
+
+SubscribesList=dict()
+
+
 def main():
 
-    startCommand.start(bot, my_keyBoard, InfoClass)
+    startCommand.start(bot, my_keyBoard, InfoClass, SubscribesList)
 
 
 
