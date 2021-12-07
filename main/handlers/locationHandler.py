@@ -1,8 +1,12 @@
-import mainMenu
 import config
-import checkField
+from menu import keyBoard
+from menu import mainMenu
+from handlers import checkField
+
 # широта (latitude) 49
 # долгота (longitude)32
+
+
 
 def gps_processing(bot, message, my_keyBoard, array):
     try:

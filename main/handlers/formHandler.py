@@ -1,6 +1,6 @@
+from classes import classes
 
-from classes import InfoDrugs
-
+InfoDrugs=classes.InfoDrugs
 
 def create_form(bot, message, my_keyBoard, array):
     i=0

@@ -1,13 +1,14 @@
-import wish
-import mainMenu
 import config
-import checkField
-import locationHandler
-import photoHandler
-import textHandler
-import formHandler
-import createTextMessageButtonHandler
+import wish
 import sorry
+from menu import mainMenu
+from menu import keyBoard
+from handlers import checkField
+from handlers import locationHandler
+from handlers import photoHandler
+from handlers import textHandler
+from handlers import formHandler
+from handlers import createTextMessageButtonHandler
 
 #from classes import InfoDrugs
 

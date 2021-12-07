@@ -23,32 +23,47 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="checkField.py">
+    <Compile Include="classes\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="classes.py">
+    <Compile Include="handlers\checkField.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="classes\classes.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="config.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="createTextMessageButtonHandler.py">
+    <Compile Include="handlers\createTextMessageButtonHandler.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="example.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="formHandler.py">
+    <Compile Include="handlers\formHandler.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="keyBoard.py">
+    <Compile Include="handlers\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="locationHandler.py">
+    <Compile Include="logs\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="menu\keyBoard.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handlers\locationHandler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="logs\loggingBotEroor.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.py" />
-    <Compile Include="mainMenu.py">
+    <Compile Include="menu\mainMenu.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="menu\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="saveSubscribers.py">
@@ -57,22 +72,16 @@
     <Compile Include="sorry.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="textHandler.py">
+    <Compile Include="handlers\textHandler.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="startCommand.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="stopDrugsAudioHandler.py">
+    <Compile Include="handlers\stopDrugsMessageHandler.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="stopDrugsDocumentHandler.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="stopDrugsMessageHandler.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="photoHandler.py">
+    <Compile Include="handlers\photoHandler.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="wish.py">
@@ -80,6 +89,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logs\logException.txt" />
     <Content Include="requirements.txt" />
     <Content Include="sticker\AnimatedSticker1.tgs" />
     <Content Include="sticker\attention.tgs" />
@@ -91,6 +101,10 @@
     <Content Include="sticker\mailGood.tgs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="logs\" />
+    <Folder Include="handlers\" />
+    <Folder Include="classes\" />
+    <Folder Include="menu\" />
     <Folder Include="sticker\" />
   </ItemGroup>
   <ItemGroup>
