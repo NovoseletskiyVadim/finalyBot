@@ -1,6 +1,6 @@
 
 
-def start(bot, my_keyBoard, array, users):
+def start(bot, my_keyBoard, array, users, errorBot):
 
     #обработчик команды "старт"
     @bot.message_handler(commands=['start'])
@@ -10,6 +10,8 @@ def start(bot, my_keyBoard, array, users):
 
         sti=open('sticker/helloBot.tgs', 'rb')
         bot.send_sticker(message.chat.id,sti)
+
+
 
         #add user in dictuonary
         userKey=str(message.chat.id)
