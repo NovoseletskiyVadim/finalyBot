@@ -1,14 +1,10 @@
+import telebot
 import config
 import startCommand
-import keyBoard
-import stopDrugsMessageHandler
-import mainMenu
 
-import telebot
-import urllib.request # request нужен для загрузки файлов от пользователя
-#from telebot import types
-#from classes import InfoDrugs
-
+from menu import keyBoard
+from handlers import stopDrugsMessageHandler
+from logs import loggingBotEroor
 
 bot=telebot.TeleBot(config.TOKEN)
 
@@ -16,19 +12,24 @@ bot=telebot.TeleBot(config.TOKEN)
 
 my_keyBoard=keyBoard.myKeyBoard()
 
+
 # временный массив для хранения не отправленных форм
 # когда пользователь начал оформлять свое сообщение оператору 
 
 InfoClass=[]
 
+errorBot=loggingBotEroor.add_info_inFile 
 
+
+#создание словаря для хранения значений сат id== userName
 
 SubscribesList=dict()
 
 
+
 def main():
 
-    startCommand.start(bot, my_keyBoard, InfoClass, SubscribesList)
+    startCommand.start(bot, my_keyBoard, InfoClass, SubscribesList, errorBot )
 
 
 
