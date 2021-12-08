@@ -89,7 +89,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logs\logCreateForm.txt" />
     <Content Include="logs\logException.txt" />
+    <Content Include="logs\logStartCommand.txt" />
     <Content Include="requirements.txt" />
     <Content Include="sticker\AnimatedSticker1.tgs" />
     <Content Include="sticker\attention.tgs" />
