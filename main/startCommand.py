@@ -1,6 +1,8 @@
+from classes import classes
 
+logCommandStart=classes.logInputCommandStart
 
-def start(bot, my_keyBoard, array, users, errorBot):
+def start(bot, my_keyBoard, array, users):
 
     #обработчик команды "старт"
     @bot.message_handler(commands=['start'])
@@ -12,18 +14,24 @@ def start(bot, my_keyBoard, array, users, errorBot):
         bot.send_sticker(message.chat.id,sti)
 
 
-
         #add user in dictuonary
-        userKey=str(message.chat.id)
-        userName=str(message.from_user.first_name+" "+message.from_user.last_name)
-        
-        users[userKey]=userName
+
+        id=str(message.chat.id)
+        first_name=str(message.from_user.first_name)
+        last_name=str(message.from_user.last_name)
+
+        # counting command "start"
+        count_command=logCommandStart(id, first_name, last_name)
+
+        #newUser=addNewUser(id, first_name, last_name)
+
+
 
         # временная проверка состояния словаря
-        print("====Check dictuonary====")
+        #print("====Check dictuonary====")
 
-        for key in users:
-            print(key," - ",users[key])
+        #for key in users:
+        #    print(key," - ",users[key])
 
         
         m=0

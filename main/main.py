@@ -7,7 +7,6 @@ from handlers import stopDrugsMessageHandler
 from logs import loggingBotEroor
 
 bot=telebot.TeleBot(config.TOKEN)
-
 #массив кнопок бота
 
 my_keyBoard=keyBoard.myKeyBoard()
@@ -29,7 +28,7 @@ SubscribesList=dict()
 
 def main():
 
-    startCommand.start(bot, my_keyBoard, InfoClass, SubscribesList, errorBot )
+    startCommand.start(bot, my_keyBoard, InfoClass, SubscribesList)
 
 
 
