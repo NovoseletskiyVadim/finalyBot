@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-def add_info_inFile(errorException):
+def add_info_inFile(errorException, moduleName):
 
     now=datetime.now()
 
@@ -10,11 +10,11 @@ def add_info_inFile(errorException):
     data=str(errorException)
 
     try:
-        myFile=open("/logs/logException.txt","a")
+        myFile=open("logs/logException.txt","a")
 
         try:
 
-            myFile.write(currentTimeCreateLog+" : " +data)
+            myFile.write(currentTimeCreateLog+" module_name : " + moduleName + "describes : " + data)
     
         except Exception as e :
 
@@ -25,7 +25,7 @@ def add_info_inFile(errorException):
 
     except Exception as ex:
 
-        print(repr(e))
+        print(repr(ex))
 
 
 
