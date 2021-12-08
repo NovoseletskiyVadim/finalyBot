@@ -196,6 +196,107 @@ class checkNewUser :
             print(repr(ex))
 
 
+    def logCommandStart(self,checkDickResult):
+
+        checkId=self.id_chat
+        checkResult=checkDickResult #True or Folse
+
+        #time
+        now=0
+        now=datetime.now()
+
+        if now==0:
+
+            raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
+        else:
+
+            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+
+
+        #логирование создания
+        if checkResult :
+
+            try:
+                myFile=open("logs/usersBotList.txt","a")
+
+                try:
+
+
+                        myFile.write("\ntime:{0} id={1} first_name={2} last_name={3}".format(
+                                                                                                                  currentTimeCreateLog,
+                                                                                                                  self.id_chat,
+                                                                                                                  self.firstName,
+                                                                                                                  self.lastName))
+
+                except Exception as e :
+
+                    print(repr(e))
+    
+                finally:
+                    myFile.close()
+
+            except Exception as ex:
+
+                print(repr(ex))
+
+
+
+class logInputCommandStart :
+
+     def __init__(self,id_chat, firstName, lastName):
+        
+        self.id_chat=id_chat
+        self.firstName=firstName
+        self.lastName=lastName
+
+        #time
+
+        now=0
+        now=datetime.now()
+
+        if now==0:
+
+            raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
+        else:
+
+            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+            #print("current_time==",currentTimeCreateLog )
+
+        
+        #логирование создания
+
+        try:
+            myFile=open("logs/logStartCommand.txt","a")
+
+            try:
+
+                myFile.write("\ntime : {0} user_command:/start id={1} first_name={2} last_name={3}".format(
+                                                                                                              currentTimeCreateLog,
+                                                                                                              self.id_chat,
+                                                                                                              self.firstName,
+                                                                                                              self.lastName))
+
+    
+            except Exception as e :
+
+                print(repr(e))
+    
+            finally:
+                myFile.close()
+
+        except Exception as ex:
+
+            print(repr(ex))
+
+     def __del__(self):
+
+        print("was command START")
+
+
+    
+
+
+
 
 
 
