@@ -1,6 +1,6 @@
 
 def message_text(bot, message, my_keyBoard, array):
-    print("Абонент id №={0} розпочав роботу із інформування".format(message.chat.id))
+    #print("Абонент id №={0} розпочав роботу із інформування".format(message.chat.id))
 
     j=0
 
