@@ -47,6 +47,9 @@
     <Compile Include="handlers\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="logs\addNewUser.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="logs\__init__.py">
       <SubType>Code</SubType>
     </Compile>
