@@ -25,7 +25,7 @@ def drugsMessageHundler(bot, my_keyBoard, array):
         
        
         if message.chat.type == "private":
-            print("message.chat.type==private")
+            #print("message.chat.type==private")
            
 
             if message.content_type=="text":
