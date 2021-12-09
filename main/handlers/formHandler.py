@@ -13,7 +13,7 @@ def create_form(bot, message, my_keyBoard, array):
 
         array.append(info_drugs)
 
-        print("Створено саму  першу форму=) \n Та добавлено заголовок повідомлення ")
+        #print("Створено саму  першу форму=) \n Та добавлено заголовок повідомлення ")
     else:
 
         
@@ -24,7 +24,7 @@ def create_form(bot, message, my_keyBoard, array):
 
         array.append(info_drugs)
 
-        print("Добавлено заголовок нового повідомлення")
+        #print("Добавлено заголовок нового повідомлення")
 
         
 
