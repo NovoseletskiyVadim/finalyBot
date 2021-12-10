@@ -1,8 +1,10 @@
 from classes import classes
 
 logCommandStart=classes.logInputCommandStart
+checkDictuonary=classes.checkDictuonary
+checkNewUser=classes.checkNewUser
 
-def start(bot, my_keyBoard, array, users):
+def start(bot, my_keyBoard, array, users, mainDictuonary,blackDictuonary ):
 
     #обработчик команды "старт"
     @bot.message_handler(commands=['start'])
@@ -25,6 +27,13 @@ def start(bot, my_keyBoard, array, users):
 
         #newUser=addNewUser(id, first_name, last_name)
 
+        check=checkDictuonary(mainDictuonary, blackDictuonary, message)
+        checkResult=check.checkNewUserDictuonaty()
+
+        #print("checkResult=",checkResult)
+
+        addUser=checkNewUser(id, first_name, last_name)
+        addUser.addSaveNewUser(checkResult )
 
 
         # временная проверка состояния словаря
@@ -51,11 +60,11 @@ def start(bot, my_keyBoard, array, users):
   
         bot.send_message(
             message.chat.id,
-            "Добро пожаловать,"+
-            " {0.first_name}!\nЯ - <b>\"{1.first_name}\"</b>,".format(message.from_user, bot.get_me())+
-            " бот созданный чтобы помогать бороться с наркотиками. \n Жду информацию!",
+            "Привіт 😊! "+
+            #" {0.first_name}!\nЯ - <b>\"{1.first_name}\"</b>,".format(message.from_user, bot.get_me())+
+            " я бот що збираю інформацію про незаконний збут наркотиків. \n Є інформація, надсилай!",
             parse_mode='html',
             reply_markup=my_keyBoard[0]
            )
-        print("команда старт")
+        #print("команда старт")
 

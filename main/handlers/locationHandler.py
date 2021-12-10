@@ -2,6 +2,8 @@ import config
 from menu import keyBoard
 from menu import mainMenu
 from handlers import checkField
+from datetime import datetime
+
 
 # широта (latitude) 49
 # долгота (longitude)32
@@ -45,6 +47,39 @@ def gps_processing(bot, message, my_keyBoard, array):
                 bot.send_sticker(message.chat.id,sti) 
                 
                 bot.send_message(message.chat.id, "✅ 📥 Повідомлення успішно доставлено🙂")
+                
+                
+                now=0
+                now=datetime.now()
+                currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+
+                try:
+                    myFile=open("logs/logCreateForm.txt","a")
+
+                    try:
+                        #print("time : {0} send_successful obj=new form send message id={1} ".format(
+                        #                                                                    currentTimeCreateLog,
+                        #                                                                    message.chat.id,
+                        #                                                                    ))
+
+                        myFile.write("\ntime : {0} send_successful obj=new form send message id={1} ".format(
+                                                                                                currentTimeCreateLog,
+                                                                                                message.chat.id,
+                                                                                                ))
+
+    
+                    except Exception as e :
+
+                        print(repr(e))
+    
+                    finally:
+                        myFile.close()
+
+                except Exception as ex:
+
+                    print(repr(ex))
+                
+                
                 break
 
             q+=1
@@ -89,6 +124,37 @@ def skipGPS(bot, message, my_keyBoard, array):
                 
                 bot.send_message(message.chat.id, "✅ 📥 Повідомлення успішно доставлено🙂")
 
+                now=0
+                now=datetime.now()
+                currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+
+                try:
+                    myFile=open("logs/logCreateForm.txt","a")
+
+                    try:
+                        #print("time : {0} send_successful obj=new form send message id={1} ".format(
+                        #                                                                    currentTimeCreateLog,
+                        #                                                                    message.chat.id,
+                        #                                                                    ))
+
+                        myFile.write("\ntime : {0} send_successful obj=new form send message id={1} ".format(
+                                                                                                currentTimeCreateLog,
+                                                                                                message.chat.id,
+                                                                                                ))
+
+    
+                    except Exception as e :
+
+                        print(repr(e))
+    
+                    finally:
+
+                        myFile.close()
+
+                except Exception as ex:
+
+                    print(repr(ex))
+
                 break
 
 
@@ -97,5 +163,5 @@ def skipGPS(bot, message, my_keyBoard, array):
     except Exception as e:
         print(repr(e))
     finally:
-        print("finaly")
+        #print("finaly")
         mainMenu.menu(bot,my_keyBoard,message, array)
