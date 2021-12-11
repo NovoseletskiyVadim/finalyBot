@@ -37,7 +37,7 @@ def main():
 
 
 
-    startCommand.start(bot, my_keyBoard, InfoClass, SubscribesList,mainDictuonary,blackDictuonary )
+    startCommand.start(bot, my_keyBoard, InfoClass, mainDictuonary,blackDictuonary )
 
 
 
