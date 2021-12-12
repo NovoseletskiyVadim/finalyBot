@@ -1,10 +1,11 @@
 from classes import classes
+import saveSubscribers
 
 logCommandStart=classes.logInputCommandStart
 checkDictuonary=classes.checkDictuonary
 checkNewUser=classes.checkNewUser
 
-def start(bot, my_keyBoard, array, users, mainDictuonary,blackDictuonary ):
+def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary ):
 
     #обработчик команды "старт"
     @bot.message_handler(commands=['start'])
@@ -27,7 +28,7 @@ def start(bot, my_keyBoard, array, users, mainDictuonary,blackDictuonary ):
 
         #newUser=addNewUser(id, first_name, last_name)
 
-        check=checkDictuonary(mainDictuonary, blackDictuonary, message)
+        check=checkDictuonary(mainDictuonary, blackDictuonary, message, saveSubscribers)
         checkResult=check.checkNewUserDictuonaty()
 
         #print("checkResult=",checkResult)
@@ -42,6 +43,7 @@ def start(bot, my_keyBoard, array, users, mainDictuonary,blackDictuonary ):
         #for key in users:
         #    print(key," - ",users[key])
 
+        
         
         m=0
         if len(array)!=0:

@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import saveSubscribers
 
 
 class InfoDrugs :
@@ -298,37 +298,51 @@ class logInputCommandStart :
 
 class checkDictuonary :
 
-    def __init__(self, mainDictuonary, blackDictuonary, message):
+    def __init__(self, mainDictuonary, blackDictuonary, message, checkDictuonaty):
 
         self.mainDictuonary=mainDictuonary
         self.message=message
         self.blackDictuonary=blackDictuonary
+        self.checkDictuonaty=checkDictuonaty
 
         
     
     
     def checkNewUserDictuonaty(self):
 
-        key=self.message.chat.id
+        # TODO: сделать провверку есть ли в словаре какая то запись
+        # если нету то загрузить  из файла всех пользователей и проверить
+        # нового пользователя по всем параметрам
 
-        if key in self.blackDictuonary:
+        if self.mainDictuonary:
 
-            return False
+            key=self.message.chat.id
 
-        elif key in self.mainDictuonary:
+            if key in self.blackDictuonary:
+
+                return False
+
+            elif key in self.mainDictuonary:
+
+
             
-            return False
+                return False
         
+            else:
+
+                id=self.message.chat.id
+                firstName=str(self.message.from_user.first_name)
+                lastName=str(self.message.from_user.last_name)
+                name=firstName+lastName
+
+                #add new user in file
+                self.mainDictuonary[id]=name
+                return True
+    
         else:
 
-            id=self.message.chat.id
-            firstName=str(self.message.from_user.first_name)
-            lastName=str(self.message.from_user.last_name)
-            name=firstName+lastName
-
-            #add new user in file
-            self.mainDictuonary[id]=name
-            return True
+            self.checkDictuonaty.check_subscribes()
+           
 
 
 
