@@ -261,4 +261,4 @@ __pycache__/
 *.pyc
 env*/
 config.py
-log/*.txt
+logs/*.txt
