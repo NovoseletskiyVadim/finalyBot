@@ -92,6 +92,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logs\dictuonary.txt" />
     <Content Include="logs\logCreateForm.txt" />
     <Content Include="logs\logException.txt" />
     <Content Include="logs\logStartCommand.txt" />
