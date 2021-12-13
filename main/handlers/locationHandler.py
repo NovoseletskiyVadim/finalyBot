@@ -31,18 +31,21 @@ def gps_processing(bot, message, my_keyBoard, array):
 
                 nameBlock, textField, photoField, GPSfield=checkField.check_value(array[q])
 
-                bot.send_message(config.Chanel_2, "{0}\n\n 🚻 заявник : {1} {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n message_from_user_id={9}\n\n user_name={10}".format(
-                                                                                                    nameBlock,
-                                                                                                    message.from_user.first_name,
-                                                                                                    message.from_user.last_name,
-                                                                                                    textField,
-                                                                                                    array[q].textDrugs,
-                                                                                                    photoField,
-                                                                                                    array[q].photoDrugs,
-                                                                                                    GPSfield,
-                                                                                                    array[q].gpsAboutDrugs,
-                                                                                                    message.from_user.id,
-                                                                                                    message.from_user.username))
+                bot.send_message(config.Chanel_2, "{0}\n\n 🚻 заявник : {1} {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n message_from_user_id={9}\n\n user_name={10}".format
+                              (
+                                nameBlock,
+                                message.from_user.first_name,
+                                message.from_user.last_name,
+                                textField,
+                                array[q].textDrugs,
+                                photoField,
+                                array[q].photoDrugs,
+                                GPSfield,
+                                array[q].gpsAboutDrugs,
+                                message.from_user.id,
+                                message.from_user.username,
+                                                                                                    
+                                ))
                 sti=open('sticker/mailGood.tgs', 'rb')
                 bot.send_sticker(message.chat.id,sti) 
                 
@@ -57,15 +60,13 @@ def gps_processing(bot, message, my_keyBoard, array):
                     myFile=open("logs/logCreateForm.txt","a")
 
                     try:
-                        #print("time : {0} send_successful obj=new form send message id={1} ".format(
-                        #                                                                    currentTimeCreateLog,
-                        #                                                                    message.chat.id,
-                        #                                                                    ))
+                        
 
-                        myFile.write("\ntime : {0} send_successful obj=new form send message id={1} ".format(
-                                                                                                currentTimeCreateLog,
-                                                                                                message.chat.id,
-                                                                                                ))
+                        myFile.write("\ntime : {0} send_successful obj=new form send message id={1} ".format
+                                    (
+                                    currentTimeCreateLog,
+                                    message.chat.id,
+                                    ))
 
     
                     except Exception as e :
@@ -107,18 +108,22 @@ def skipGPS(bot, message, my_keyBoard, array):
 
                 nameBlock, textField, photoField, GPSfield=checkField.check_value(array[q])
 
-                bot.send_message(config.Chanel_2, "{0}\n\n 🚻 заявник : {1} {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n message_from_user_id={9}\n\n user_name={10}".format(
-                                                                                                    nameBlock,
-                                                                                                    message.from_user.first_name,
-                                                                                                    message.from_user.last_name,
-                                                                                                    textField,
-                                                                                                    array[q].textDrugs,
-                                                                                                    photoField,
-                                                                                                    array[q].photoDrugs,
-                                                                                                    GPSfield,
-                                                                                                    array[q].gpsAboutDrugs,
-                                                                                                    message.from_user.id,
-                                                                                                    message.from_user.username))
+                bot.send_message(config.Chanel_2, "{0}\n\n 🚻 заявник : {1} {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n message_from_user_id={9}\n\n user_name={10}".format
+                                 (
+                                    nameBlock,
+                                    message.from_user.first_name,
+                                    message.from_user.last_name,
+                                    textField,
+                                    array[q].textDrugs,
+                                    photoField,
+                                    array[q].photoDrugs,
+                                    GPSfield,
+                                    array[q].gpsAboutDrugs,
+                                    message.from_user.id,
+                                    message.from_user.username,
+                                    
+                                    ))
+
                 sti=open('sticker/mailGood.tgs', 'rb')
                 bot.send_sticker(message.chat.id,sti) 
                 
@@ -132,15 +137,13 @@ def skipGPS(bot, message, my_keyBoard, array):
                     myFile=open("logs/logCreateForm.txt","a")
 
                     try:
-                        #print("time : {0} send_successful obj=new form send message id={1} ".format(
-                        #                                                                    currentTimeCreateLog,
-                        #                                                                    message.chat.id,
-                        #                                                                    ))
+                       
 
-                        myFile.write("\ntime : {0} send_successful obj=new form send message id={1} ".format(
-                                                                                                currentTimeCreateLog,
-                                                                                                message.chat.id,
-                                                                                                ))
+                        myFile.write("time : {0} send_successful obj=new form send message id={1}\n".format
+                                     (
+                                        currentTimeCreateLog,
+                                        message.chat.id,
+                                      ))
 
     
                     except Exception as e :
@@ -163,5 +166,4 @@ def skipGPS(bot, message, my_keyBoard, array):
     except Exception as e:
         print(repr(e))
     finally:
-        #print("finaly")
         mainMenu.menu(bot,my_keyBoard,message, array)
