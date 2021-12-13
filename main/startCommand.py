@@ -1,5 +1,5 @@
 from classes import classes
-import saveSubscribers
+#import saveSubscribers
 
 logCommandStart=classes.logInputCommandStart
 checkDictuonary=classes.checkDictuonary
@@ -26,15 +26,22 @@ def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary ):
         # counting command "start"
         count_command=logCommandStart(id, first_name, last_name)
 
-        #newUser=addNewUser(id, first_name, last_name)
+        #проверка словаря:
+        #       если пользоваьель checkResult = False
+        #       если нету         checkResult = True
 
-        check=checkDictuonary(mainDictuonary, blackDictuonary, message, saveSubscribers)
+        check=checkDictuonary(
+                                mainDictuonary,
+                                blackDictuonary,
+                                message,
+                                #saveSubscribers
+                                )
         checkResult=check.checkNewUserDictuonaty()
 
         #print("checkResult=",checkResult)
 
         addUser=checkNewUser(id, first_name, last_name)
-        addUser.addSaveNewUser(checkResult )
+        addUser.addSaveNewUser(checkResult)
 
 
         # временная проверка состояния словаря
