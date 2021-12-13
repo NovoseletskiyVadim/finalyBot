@@ -16,8 +16,10 @@ my_keyBoard=keyBoard.myKeyBoard()
 # когда пользователь начал оформлять свое сообщение оператору 
 InfoClass=[]
 
-#словари 
+#словари:
+#done
 mainDictuonary={}
+#TODO inicialisation and addition:
 blackDictuonary={}
 
 errorBot=loggingBotEroor.add_info_inFile 
@@ -28,21 +30,24 @@ errorBot=loggingBotEroor.add_info_inFile
 def main():
 
 
-    #TODO: create inicialistion
+    startCommand.start(
+                        bot,
+                        my_keyBoard,
+                        InfoClass,
+                        mainDictuonary,
+                        blackDictuonary,
+                        
+                        )
 
 
 
 
-
-
-
-
-    startCommand.start(bot, my_keyBoard, InfoClass, mainDictuonary,blackDictuonary )
-
-
-
-
-    stopDrugsMessageHandler.drugsMessageHundler(bot, my_keyBoard, InfoClass)
+    stopDrugsMessageHandler.drugsMessageHundler(
+                                                bot,
+                                                my_keyBoard,
+                                                InfoClass,
+                                                
+                                                )
 
    
 
