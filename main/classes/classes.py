@@ -1,6 +1,4 @@
 from datetime import datetime
-import saveSubscribers
-
 
 class InfoDrugs :
  
@@ -23,7 +21,6 @@ class InfoDrugs :
         else:
 
             currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
-            #print("current_time==",currentTimeCreateLog )
 
         #логирование создания
 
@@ -31,15 +28,13 @@ class InfoDrugs :
             myFile=open("logs/logCreateForm.txt","a")
 
             try:
-                #print("time : {0} create obj=new form send message id={1} ".format(
-                #                                                                    currentTimeCreateLog,
-                #                                                                    self.id_chat,
-                #                                                                    ))
+                
+                myFile.write("time : {0} create obj=new form send message id={1}\n".format
+                             (
+                                currentTimeCreateLog,
+                                self.id_chat,
 
-                myFile.write("\ntime : {0} create obj=new form send message id={1} ".format(
-                                                                                        currentTimeCreateLog,
-                                                                                        self.id_chat,
-                                                                                        ))
+                                ))
 
     
             except Exception as e :
@@ -64,21 +59,17 @@ class InfoDrugs :
         else:
 
             currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
-            #print("current_time==",currentTimeCreateLog )
 
         try:
             myFile=open("logs/logCreateForm.txt","a")
 
             try:
-                #print("time : {0} delete obj=new form send message id={1} ".format(
-                #                                                                    currentTimeCreateLog,
-                #                                                                    self.id_chat,
-                #                                                                    ))
-
-                myFile.write("\ntime : {0} delete obj=new form send message id={1} ".format(
-                                                                                        currentTimeCreateLog,
-                                                                                        self.id_chat,
-                                                                                        ))
+                
+                myFile.write("time : {0} delete obj=new form send message id={1}\n".format
+                             (
+                                currentTimeCreateLog,
+                                self.id_chat,
+                               ))
 
     
             except Exception as e :
@@ -106,18 +97,18 @@ class InfoDrugs :
 
     longitude=0
 
-
 class checkNewUser :
 
     
+    #создание обьекта User для проверки 
 
     def __init__(self,id_chat, firstName, lastName):
         
         self.id_chat=id_chat
         self.firstName=firstName
         self.lastName=lastName
-        #time
 
+        #time
         now=0
         now=datetime.now()
 
@@ -127,23 +118,21 @@ class checkNewUser :
         else:
 
             currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
-            #print("current_time==",currentTimeCreateLog )
 
         
-        #логирование создания
-
+        #логирование ВЫЗОВА КОМАНДЫ "старт" и создание обьекта User для проверки 
         try:
             myFile=open("logs/logStartCommand.txt","a")
 
             try:
 
-                myFile.write("\ntime : {0} create obj=checkNewUser id={1} firstName={2} lastName={3}".format(
-                                                                                                              currentTimeCreateLog,
-                                                                                                              self.id_chat,
-                                                                                                              self.firstName,
-                                                                                                              self.lastName
-                                                                                                                            ))
-
+                myFile.write("time : {0} create obj=checkNewUser id={1} firstName={2} lastName={3}\n".format
+                             (
+                                currentTimeCreateLog,
+                                self.id_chat,
+                                self.firstName,
+                                self.lastName,
+                                ))
     
             except Exception as e :
 
@@ -170,20 +159,20 @@ class checkNewUser :
         else:
 
             currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
-            #print("current_time==",currentTimeCreateLog )
-
 
         try:
             myFile=open("logs/logStartCommand.txt","a")
 
             try:
 
-                 myFile.write("\ntime : {0} FINISHED CHECKING! and delete obj=checkNewUser id={1} firstName={2} lastName={3}".format(
-                                                                                                                                      currentTimeCreateLog,
-                                                                                                                                      self.id_chat,
-                                                                                                                                      self.firstName,
-                                                                                                                                      self.lastName
-                                                                                                                                                        ))
+                 myFile.write("time : {0} FINISHED CHECKING! and delete obj=checkNewUser id={1} firstName={2} lastName={3}\n".format
+                              (
+                                currentTimeCreateLog,
+                                self.id_chat,
+                                self.firstName,
+                                self.lastName,
+
+                                ))
     
             except Exception as e :
 
@@ -196,7 +185,7 @@ class checkNewUser :
 
             print(repr(ex))
 
-
+    #добавление User в файл   после сверки со словарями 
     def addSaveNewUser( self, checkDickResult):
 
         checkResult=checkDickResult #True or Folse
@@ -225,13 +214,14 @@ class checkNewUser :
                 try:
 
 
-                        myFile.write("\ntime: {0} id={1} firstName={2} lastName={3}".format(
-                                                                                                                  currentTimeCreateLog,
-                                                                                                                  self.id_chat,
-                                                                                                                  self.firstName,
-                                                                                                                  self.lastName
-                                                                                                                                    ))
+                        myFile.write("time: {0} id={1} firstName={2} lastName={3}\n".format
+                                     (
+                                        currentTimeCreateLog,
+                                        self.id_chat,
+                                        self.firstName,
+                                        self.lastName,
 
+                                        ))
                 except Exception as e :
 
                     print(repr(e))
@@ -243,6 +233,28 @@ class checkNewUser :
 
                 print(repr(ex))
 
+            try:
+                dictuonaryFile=open("logs/dictuonary.txt","a")
+                
+                try:
+
+                    dictuonaryFile.write("{0}={1} {2}\n".format
+                            (
+                                self.id_chat,
+                                self.firstName,
+                                self.lastName
+                            ))
+
+                except Exception as e:
+
+                    print(repr(e))
+            
+                finally:
+                    dictuonaryFile.close()
+
+            except Exception as ex:
+
+                print(repr(ex))
 
 class logInputCommandStart :
 
@@ -253,7 +265,6 @@ class logInputCommandStart :
         self.lastName=lastName
 
         #time
-
         now=0
         now=datetime.now()
 
@@ -264,20 +275,21 @@ class logInputCommandStart :
 
             currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
             #print("current_time==",currentTimeCreateLog )
-
-        
+    
         #логирование создания
-
         try:
             myFile=open("logs/logStartCommand.txt","a")
 
             try:
 
-                myFile.write("\ntime : {0} user_command:/start id={1} first_name={2} last_name={3}".format(
-                                                                                                              currentTimeCreateLog,
-                                                                                                              self.id_chat,
-                                                                                                              self.firstName,
-                                                                                                              self.lastName))
+                myFile.write("time : {0} user_command:/start id={1} first_name={2} last_name={3}\n".format
+                             (
+                                currentTimeCreateLog,
+                                self.id_chat,
+                                self.firstName,
+                                self.lastName,
+
+                                ))
 
     
             except Exception as e :
@@ -298,13 +310,16 @@ class logInputCommandStart :
 
 class checkDictuonary :
 
-    def __init__(self, mainDictuonary, blackDictuonary, message, checkDictuonaty):
+    def __init__(
+                    self,
+                    mainDictuonary, 
+                    blackDictuonary,    
+                    message,            
+                    ):
 
         self.mainDictuonary=mainDictuonary
         self.message=message
         self.blackDictuonary=blackDictuonary
-        self.checkDictuonaty=checkDictuonaty
-
         
     
     
@@ -316,7 +331,7 @@ class checkDictuonary :
 
         if self.mainDictuonary:
 
-            key=self.message.chat.id
+            key=str(self.message.chat.id)
 
             if key in self.blackDictuonary:
 
@@ -324,8 +339,6 @@ class checkDictuonary :
 
             elif key in self.mainDictuonary:
 
-
-            
                 return False
         
             else:
@@ -333,15 +346,101 @@ class checkDictuonary :
                 id=self.message.chat.id
                 firstName=str(self.message.from_user.first_name)
                 lastName=str(self.message.from_user.last_name)
-                name=firstName+lastName
+                name=firstName+" "+lastName
 
-                #add new user in file
+                #add new user in Dictuonary
                 self.mainDictuonary[id]=name
+
                 return True
     
+
+        #если словарь пустой то загружаем ключи и пользовтелей из файла 
         else:
 
-            self.checkDictuonaty.check_subscribes()
+            linesFromFile=[]
+
+            try:
+                
+                fileBaseSucscribes=open("logs/dictuonary.txt","r")
+
+                try:
+            
+                   for line in fileBaseSucscribes:
+                        
+                        #загружаем данные файла в массив строк
+                        linesFromFile.append(line)
+
+                except Exception as e:
+                    print(repr(e))
+            
+            except Exception as ex:
+
+                print(repr(ex))
+            
+            finally:
+
+                fileBaseSucscribes.close()
+
+            i=0
+
+            #проверяем что достало из файла 
+            #если записи есть то:
+            if len(linesFromFile)>0:
+
+                while i<len(linesFromFile):
+
+                    #берем отдельную строку и распарсиваем для словаря  
+                    indexID=linesFromFile[i].split("=")
+
+                    print("indexID={0}".format(indexID))
+
+                    self.mainDictuonary[indexID[0]]=indexID[1]
+
+                    i+=1
+
+                #TODO: выполнить проверку пользователя после загрузки слваря 
+                key=str(self.message.chat.id)
+
+
+                if key in self.blackDictuonary:
+
+                    return False
+
+                elif key in self.mainDictuonary:
+
+                    return False
+        
+                else:
+
+                    id=self.message.chat.id
+                    firstName=str(self.message.from_user.first_name)
+                    lastName=str(self.message.from_user.last_name)
+                    name=firstName+" "+lastName
+
+                    #add new user in Dictuonary
+                    self.mainDictuonary[id]=name
+
+                    return True
+
+
+                #print("======= тест загрузки словаря ==============")
+                #for key in self.mainDictuonary:
+                #    print(key+"="+self.mainDictuonary[key])
+
+            #если файл "dictuonary.txt" был изначально пустой делаем сначала запись в словарь и возвращ флаг
+            else:
+                
+                print("файл пользователей пустой потому катаю новый лист")
+
+                id=self.message.chat.id
+                firstName=str(self.message.from_user.first_name)
+                lastName=str(self.message.from_user.last_name)
+                name=firstName+" "+lastName
+
+                #add new user in Dictuonary
+                self.mainDictuonary[id]=name
+
+                return True
            
 
 
