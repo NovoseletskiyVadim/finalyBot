@@ -392,8 +392,6 @@ class checkDictuonary :
                     #берем отдельную строку и распарсиваем для словаря  
                     indexID=linesFromFile[i].split("=")
 
-                    print("indexID={0}".format(indexID))
-
                     self.mainDictuonary[indexID[0]]=indexID[1]
 
                     i+=1
