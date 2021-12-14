@@ -31,19 +31,16 @@ def gps_processing(bot, message, my_keyBoard, array):
 
                 nameBlock, textField, photoField, GPSfield=checkField.check_value(array[q])
 
-                bot.send_message(config.Chanel_2, "{0}\n\n 🚻 заявник : {1} {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n message_from_user_id={9}\n\n user_name={10}".format
+                bot.send_message(config.Chanel_2, "{0}\n\n 🔑 : {1}\n\n {2}\n {3}\n\n {4}\n {5}\n\n {6}\n {7}\n\n ".format
                               (
-                                nameBlock,
-                                message.from_user.first_name,
-                                message.from_user.last_name,
-                                textField,
-                                array[q].textDrugs,
-                                photoField,
-                                array[q].photoDrugs,
-                                GPSfield,
-                                array[q].gpsAboutDrugs,
-                                message.from_user.id,
-                                message.from_user.username,
+                                nameBlock,#{0}
+                                message.from_user.id,#{1}
+                                textField,#{2}
+                                array[q].textDrugs,#{3}
+                                photoField,#{4}
+                                array[q].photoDrugs,#{5}
+                                GPSfield,#{6}
+                                array[q].gpsAboutDrugs,#{7}
                                                                                                     
                                 ))
                 sti=open('sticker/mailGood.tgs', 'rb')
@@ -108,19 +105,16 @@ def skipGPS(bot, message, my_keyBoard, array):
 
                 nameBlock, textField, photoField, GPSfield=checkField.check_value(array[q])
 
-                bot.send_message(config.Chanel_2, "{0}\n\n 🚻 заявник : {1} {2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n message_from_user_id={9}\n\n user_name={10}".format
+                bot.send_message(config.Chanel_2, "{0}\n\n 🔑 : {1}\n\n {2}\n {3}\n\n {4}\n {5}\n\n {6}\n {7}\n\n".format
                                  (
-                                    nameBlock,
-                                    message.from_user.first_name,
-                                    message.from_user.last_name,
-                                    textField,
-                                    array[q].textDrugs,
-                                    photoField,
-                                    array[q].photoDrugs,
-                                    GPSfield,
-                                    array[q].gpsAboutDrugs,
-                                    message.from_user.id,
-                                    message.from_user.username,
+                                    nameBlock,#{0}
+                                    message.from_user.id,#{1}
+                                    textField,#{2}
+                                    array[q].textDrugs,#{3}
+                                    photoField,#{4}
+                                    array[q].photoDrugs,#{5}
+                                    GPSfield,#{6}
+                                    array[q].gpsAboutDrugs,#{7}
                                     
                                     ))
 
