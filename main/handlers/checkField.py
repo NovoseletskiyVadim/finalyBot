@@ -22,7 +22,6 @@ def check_value(objForm):
 
         infoAboutGPS="🔴 GPS координати місця : "
 
-        print("infoAboutGPS=",infoAboutGPS)
 
 
         

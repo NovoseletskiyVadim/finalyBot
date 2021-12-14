@@ -429,8 +429,6 @@ class checkDictuonary :
 
             #если файл "dictuonary.txt" был изначально пустой делаем сначала запись в словарь и возвращ флаг
             else:
-                
-                print("файл пользователей пустой потому катаю новый лист")
 
                 id=self.message.chat.id
                 firstName=str(self.message.from_user.first_name)
