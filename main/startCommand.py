@@ -34,7 +34,6 @@ def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary ):
                                 mainDictuonary,
                                 blackDictuonary,
                                 message,
-                                #saveSubscribers
                                 )
         checkResult=check.checkNewUserDictuonaty()
 
