@@ -31,16 +31,21 @@ def gps_processing(bot, message, my_keyBoard, array):
 
                 nameBlock, textField, photoField, GPSfield=checkField.check_value(array[q])
 
-                bot.send_message(config.Chanel_2, "{0}\n\n 🔑 : {1}\n\n {2}\n {3}\n\n {4}\n {5}\n\n {6}\n {7}\n\n ".format
+                timeMessage=datetime.now()
+
+                currentTimeMessage=timeMessage.strftime("%d/%m/%y %I:%M")
+
+                bot.send_message(config.Chanel_2, "{0}\n\n📅🕑={1}\n\n🔑={2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n ".format
                               (
                                 nameBlock,#{0}
-                                message.from_user.id,#{1}
-                                textField,#{2}
-                                array[q].textDrugs,#{3}
-                                photoField,#{4}
-                                array[q].photoDrugs,#{5}
-                                GPSfield,#{6}
-                                array[q].gpsAboutDrugs,#{7}
+                                currentTimeMessage,#{1}
+                                message.from_user.id,#{2}
+                                textField,#{3}
+                                array[q].textDrugs,#{4}
+                                photoField,#{5}
+                                array[q].photoDrugs,#{6}
+                                GPSfield,#{7}
+                                array[q].gpsAboutDrugs,#{8}
                                                                                                     
                                 ))
                 sti=open('sticker/mailGood.tgs', 'rb')
@@ -105,16 +110,21 @@ def skipGPS(bot, message, my_keyBoard, array):
 
                 nameBlock, textField, photoField, GPSfield=checkField.check_value(array[q])
 
-                bot.send_message(config.Chanel_2, "{0}\n\n 🔑 : {1}\n\n {2}\n {3}\n\n {4}\n {5}\n\n {6}\n {7}\n\n".format
+                timeMessage=datetime.now()
+
+                currentTimeMessage=timeMessage.strftime("%d/%m/%y %I:%M")
+
+                bot.send_message(config.Chanel_2, "{0}\n\n 📅🕑={1}\n\n 🔑={2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n".format
                                  (
                                     nameBlock,#{0}
-                                    message.from_user.id,#{1}
-                                    textField,#{2}
-                                    array[q].textDrugs,#{3}
-                                    photoField,#{4}
-                                    array[q].photoDrugs,#{5}
-                                    GPSfield,#{6}
-                                    array[q].gpsAboutDrugs,#{7}
+                                    currentTimeMessage,#{1}
+                                    message.from_user.id,#{2}
+                                    textField,#{3}
+                                    array[q].textDrugs,#{4}
+                                    photoField,#{5}
+                                    array[q].photoDrugs,#{6}
+                                    GPSfield,#{7}
+                                    array[q].gpsAboutDrugs,#{8}
                                     
                                     ))
 
