@@ -1,5 +1,4 @@
 from classes import classes
-
 checkUser=classes.checkNewUser
 
 #check_status==True or False
@@ -11,4 +10,3 @@ def addUser(message,check_status):
 
     user.addSaveNewUser(check_status)
 
-    #print("add new user")
