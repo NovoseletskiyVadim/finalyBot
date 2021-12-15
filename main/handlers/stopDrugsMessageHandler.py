@@ -30,7 +30,7 @@ def drugsMessageHundler(bot, my_keyBoard, array):
 
             if message.content_type=="text":
 
-                if message.text=="📖 інструкція із користування":
+                if message.text=="📖 користувачам боту":
                 
                   my_keyBoard[-1]
 
