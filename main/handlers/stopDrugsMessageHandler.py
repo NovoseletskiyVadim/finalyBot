@@ -29,34 +29,34 @@ def drugsMessageHundler(bot, my_keyBoard, array):
            
 
             if message.content_type=="text":
-                       
-                if message.text=="🔴 інструкція із користування":
+
+                if message.text=="📖 інструкція із користування":
                 
                   my_keyBoard[-1]
 
                   wish.putWish(bot,message,my_keyBoard)
 
-                elif message.text== "🔴 інформація про правопорушення":
+                elif message.text== "🔴 повідомити про правопорушення":
                     
-                    #создание формы сообщения
+                    #create form of message
                     formHandler.create_form(bot, message, my_keyBoard, array)
 
-                elif message.text=="🔴 все відмінити та повернутися в головне меню":
+                elif message.text=="❌ все відмінити та повернутися в головне меню":
 
-                    #обработка кнопки "отменить "
+                    #button handling"отменить "
                     mainMenu.menu(bot,my_keyBoard,message, array)
 
-                elif message.text=="🔴 розпочати роботу" :
+                elif message.text=="❇️ розпочати роботу" :
 
-                    #обработка кнопки "начать работу"
+                    #button handling "начать работу"
                     createTextMessageButtonHandler.message_text(bot, message, my_keyBoard, array)
-    
-                elif message.text=="🔴 пропустити відправку GPS":
+                     
+                elif message.text=="⏩ пропустити відправку GPS":
 
                     #обработка "пропустить отправку GPS"
                     locationHandler.skipGPS(bot, message, my_keyBoard, array)
 
-                elif message.text=="🔴 пропустити відправку фото":
+                elif message.text=="⏩ пропустити відправку фото":
 
                     #обработка (прпустить отправку фото)
                     photoHandler.skip_photo(bot, message, my_keyBoard, array)
