@@ -1,31 +1,16 @@
 from classes import classes
-
 InfoDrugs=classes.InfoDrugs
 
+#creating a post form and adding a form header
+
 def create_form(bot, message, my_keyBoard, array):
-    i=0
 
-    if len(array)==0:
                             
-        info_drugs=InfoDrugs(message.chat.id)
+    info_drugs=InfoDrugs(message.chat.id)
                             
-        info_drugs.blockName="🔴 інформація про правопорушення"
+    info_drugs.blockName="🔴 інформація про правопорушення"
 
-        array.append(info_drugs)
-
-        #print("Створено саму  першу форму=) \n Та добавлено заголовок повідомлення ")
-    else:
-
-        
-
-        info_drugs=InfoDrugs(message.chat.id)
-                            
-        info_drugs.blockName="🔴 інформація про правопорушення"
-
-        array.append(info_drugs)
-
-        #print("Добавлено заголовок нового повідомлення")
-
+    array.append(info_drugs)
         
 
 
