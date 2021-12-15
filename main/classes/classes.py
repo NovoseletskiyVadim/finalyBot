@@ -304,8 +304,6 @@ class logInputCommandStart :
 
             print(repr(ex))
 
-     
-
 class checkDictuonary :
 
     def __init__(
