@@ -64,7 +64,7 @@ def gps_processing(bot, message, my_keyBoard, array):
                     try:
                         
 
-                        myFile.write("\ntime : {0} send_successful obj=new form send message id={1} ".format
+                        myFile.write("time : {0} send_successful obj=new form send message id={1}\n".format
                                     (
                                     currentTimeCreateLog,
                                     message.chat.id,
