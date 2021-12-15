@@ -122,7 +122,7 @@ class checkNewUser :
         
         #логирование ВЫЗОВА КОМАНДЫ "старт" и создание обьекта User для проверки 
         try:
-            myFile=open("logs/logStartCommand.txt","a")
+            myFile=open("logs/logCheckUser.txt","a")
 
             try:
 
@@ -161,7 +161,7 @@ class checkNewUser :
             currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
 
         try:
-            myFile=open("logs/logStartCommand.txt","a")
+            myFile=open("logs/logCheckUser.txt","a")
 
             try:
 
