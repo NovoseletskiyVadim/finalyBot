@@ -304,9 +304,7 @@ class logInputCommandStart :
 
             print(repr(ex))
 
-     def __del__(self):
-
-        print("was command START")
+     
 
 class checkDictuonary :
 

@@ -25,6 +25,8 @@ def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary ):
 
         # counting command "start"
         count_command=logCommandStart(id, first_name, last_name)
+        del count_command
+
 
         #проверка словаря:
         #       если пользоваьель checkResult = False
@@ -74,5 +76,4 @@ def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary ):
             parse_mode='html',
             reply_markup=my_keyBoard[0]
            )
-        #print("команда старт")
 
