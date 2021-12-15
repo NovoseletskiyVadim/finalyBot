@@ -22,9 +22,6 @@ mainDictuonary={}
 #TODO inicialisation and addition:
 blackDictuonary={}
 
-errorBot=loggingBotEroor.add_info_inFile 
-
-
 
 
 def main():
