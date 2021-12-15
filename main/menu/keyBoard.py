@@ -8,7 +8,7 @@ def myKeyBoard():
 
     #[0]
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item1=types.KeyboardButton("📖 інструкція із користування")
+    item1=types.KeyboardButton("📖 користувачам боту")
     item2=types.KeyboardButton("🔴 повідомити про правопорушення" )
     markup=markup.add(item1,item2)
     
