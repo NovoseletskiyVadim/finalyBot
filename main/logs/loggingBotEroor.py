@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-def add_info_inFile(errorException, moduleName):
+def add_infoException_inFile(errorException, moduleName):
 
     now=datetime.now()
 
