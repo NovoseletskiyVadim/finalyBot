@@ -1,8 +1,0 @@
-time : 15/12/21 12:19 user_command:/start id=346601697 first_name=Master last_name=VN
-time : 15/12/21 02:45 user_command:/start id=346601697 first_name=Master last_name=VN
-time : 15/12/21 02:59 user_command:/start id=346601697 first_name=Master last_name=VN
-time : 15/12/21 03:05 user_command:/start id=346601697 first_name=Master last_name=VN
-time : 15/12/21 03:10 user_command:/start id=346601697 first_name=Master last_name=VN
-time : 15/12/21 03:14 user_command:/start id=346601697 first_name=Master last_name=VN
-time : 15/12/21 03:22 user_command:/start id=346601697 first_name=Master last_name=VN
-time : 15/12/21 03:27 user_command:/start id=346601697 first_name=Master last_name=VN
