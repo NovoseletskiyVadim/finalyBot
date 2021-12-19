@@ -5,7 +5,7 @@ logCommandStart=classes.logInputCommandStart
 checkDictuonary=classes.checkDictuonary
 checkNewUser=classes.checkNewUser
 
-def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary ):
+def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary,checkUpdateDictuonary ):
 
     #обработчик команды "старт"
     @bot.message_handler(commands=['start'])
@@ -24,7 +24,9 @@ def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary ):
         last_name=str(message.from_user.last_name)
 
         # counting command "start"
-        count_command=logCommandStart(id, first_name, last_name)
+        #создаем обьет команды старт 
+        count_command=logCommandStart(id, first_name, last_name) 
+        count_command.checkCommandStart(checkUpdateDictuonary)
         del count_command
 
 
