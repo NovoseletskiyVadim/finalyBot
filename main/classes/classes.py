@@ -264,6 +264,9 @@ class logInputCommandStart :
         self.firstName=firstName
         self.lastName=lastName
 
+        #TODO: сделать метод проверки файл словарь
+
+     def checkCommandStart(self, checkDictuonary):
         #time
         now=0
         now=datetime.now()
@@ -271,38 +274,206 @@ class logInputCommandStart :
         if now==0:
 
             raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
+
         else:
 
             currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
-            #print("current_time==",currentTimeCreateLog )
+        
+        #TODO: если старт не логирован то..логировать 
+
+        #dictuonary
+        if checkDictuonary:
+            print("dictuonary is exist")
+            
+            key=str(self.id_chat)
+
+            if key in checkDictuonary:
+
+                return True
+            
+            else:
+
+                id=self.message.chat.id
+                firstName=str(self.message.from_user.first_name)
+                lastName=str(self.message.from_user.last_name)
+                name=firstName+" "+lastName
+
+                #add new item in Dictuonary
+                self.mainDictuonary[id]=name
+
+                #add new item in file
+                try:
+
+                    myFile=open("logs/logStartCommand.txt","a")
+
+                    try:
+
+                        myFile.write("{0}={1} {2} \n".format
+                                        (
+                                        self.id_chat,
+                                        self.firstName,
+                                        self.lastName,
+                                        #currentTimeCreateLog,
+
+                                        ))
+
     
-        #логирование создания
-        try:
-            myFile=open("logs/logStartCommand.txt","a")
+                    except Exception as e :
+
+                        print(repr(e))
+    
+                    finally:
+
+                        myFile.close()
+
+                except Exception as ex:
+
+                    print(repr(ex))
+
+
+                return True
+
+        else:
+            print("dictuonary doesn't exist")
+            #1.создать словарь из файла
+            #2. проверить есть ли команда старт этого пользов после глоб апдейта
+            #3. если нету то записать 
+
+
+            linesFromFileCheckUpdate=[]
 
             try:
+                
+                fileCheckUpdater=open("logs/logStartCommand.txt","r")
 
-                myFile.write("time : {0} user_command:/start id={1} first_name={2} last_name={3}\n".format
-                             (
-                                currentTimeCreateLog,
-                                self.id_chat,
-                                self.firstName,
-                                self.lastName,
+                try:
+            
+                   for line in fileCheckUpdater:
+                        
+                        #загружаем данные файла в массив строк
+                        linesFromFileCheckUpdate.append(line)
 
-                                ))
+                except Exception as e:
+                    print(repr(e))
+            
+            except Exception as ex:
 
-    
-            except Exception as e :
-
-                print(repr(e))
-    
+                print(repr(ex))
+            
             finally:
 
-                myFile.close()
+                fileCheckUpdater.close()
 
-        except Exception as ex:
+            x=0
 
-            print(repr(ex))
+            #проверяем что достало из файла 
+            #если записи есть то наполняем словарь инфой:
+            if len(linesFromFileCheckUpdate)>0:
+
+                while x<len(linesFromFileCheckUpdate):
+
+                    #берем отдельную строку и распарсиваем для словаря  
+                    indexID=linesFromFileCheckUpdate[x].split("=")
+                    print("indexID=",indexID)
+                    checkDictuonary[indexID[0]]=indexID[1]
+                    print("checkDictuonary=",checkDictuonary)
+
+                    x+=1
+
+                #проверяем пользователя 
+                key=str(self.id_chat)
+
+                if key in checkDictuonary:
+
+                    return True
+            
+                else:
+
+
+                    id=self.id_chat
+                    firstName=str(self.firstName)
+                    lastName=str(self.lastName)
+                    name=firstName+" "+lastName
+
+                    #add new item in Dictuonary
+                    checkDictuonary[id]=name
+
+                    #add new item in file
+                    try:
+
+                        myFile=open("logs/logStartCommand.txt","a")
+
+                        try:
+
+                            myFile.write("{0}={1} {2} \n".format
+                                            (
+                                            self.id_chat,
+                                            self.firstName,
+                                            self.lastName,
+                                            #currentTimeCreateLog,
+
+                                            ))
+
+    
+                        except Exception as e :
+
+                            print(repr(e))
+    
+                        finally:
+
+                            myFile.close()
+
+                    except Exception as ex:
+
+                        print(repr(ex))
+
+
+                    return True
+
+            else:
+
+
+                    id=self.id_chat
+                    firstName=str(self.firstName)
+                    lastName=str(self.lastName)
+                    name=firstName+" "+lastName
+
+                    #add new item in Dictuonary
+                    checkDictuonary[id]=name
+
+                    #add new item in file
+                    try:
+
+                        myFile=open("logs/logStartCommand.txt","a")
+
+                        try:
+
+                            myFile.write("{0}={1} {2}\n".format
+                                            (
+                                            self.id_chat,
+                                            self.firstName,
+                                            self.lastName,
+                                            #currentTimeCreateLog,
+
+                                            ))
+
+    
+                        except Exception as e :
+
+                            print(repr(e))
+    
+                        finally:
+
+                            myFile.close()
+
+                    except Exception as ex:
+
+                        print(repr(ex))
+
+
+                    return True
+
+        
 
 class checkDictuonary :
 
