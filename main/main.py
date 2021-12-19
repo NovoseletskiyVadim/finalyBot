@@ -17,7 +17,10 @@ my_keyBoard=keyBoard.myKeyBoard()
 InfoClass=[]
 
 #словари:
-#done
+
+#словарь команлы старт (после глобального апдейта)
+checkUpdateDictuonary={}
+#словарь всех пользователей
 mainDictuonary={}
 #TODO inicialisation and addition:
 blackDictuonary={}
@@ -33,7 +36,7 @@ def main():
                         InfoClass,
                         mainDictuonary,
                         blackDictuonary,
-                        
+                        checkUpdateDictuonary,
                         )
 
 
