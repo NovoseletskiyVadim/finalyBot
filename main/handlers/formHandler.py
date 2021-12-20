@@ -17,7 +17,7 @@ def create_form(bot, message, my_keyBoard, array):
               
     my_keyBoard[-1]
 
-    textButton=my_keyBoard[4]
+    textButton=my_keyBoard[-3]
 
     bot.send_message(message.chat.id,
                     "🔺 Ви перейшли в розділ де ви можете залишити інформацію про правопорушення \n\n "+
