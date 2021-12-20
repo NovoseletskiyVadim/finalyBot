@@ -9,6 +9,8 @@ from handlers import photoHandler
 from handlers import textHandler
 from handlers import formHandler
 from handlers import createTextMessageButtonHandler
+from logs import  addNewUser
+
 
 #from classes import InfoDrugs
 
@@ -22,9 +24,9 @@ def drugsMessageHundler(bot, my_keyBoard, array, commandStartDictuonary):
     @bot.message_handler(content_types=["text", "photo", "audio", "document","location" ])
     def handle_text(message):
         
-        
+        checkUpdate=addNewUser.checkUserUpdate(commandStartDictuonary)
        
-        if message.chat.type == "private":
+        if message.chat.type == "private" and checkUpdate:
            
             #TODO: функция чекер 
 
