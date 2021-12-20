@@ -24,7 +24,7 @@ def drugsMessageHundler(bot, my_keyBoard, array, commandStartDictuonary):
     @bot.message_handler(content_types=["text", "photo", "audio", "document","location" ])
     def handle_text(message):
         
-        checkUpdate=addNewUser.checkUserUpdate(bot, message,commandStartDictuonary)
+        checkUpdate=addNewUser.checkUserUpdate(bot, message,commandStartDictuonary, my_keyBoard)
        
         if message.chat.type == "private" and checkUpdate:
            
