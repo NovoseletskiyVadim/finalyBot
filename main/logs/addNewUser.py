@@ -10,29 +10,120 @@ def addUser(message,check_status):
 
     user.addSaveNewUser(check_status)
 
-def checkUserUpdate():
+def checkUserUpdate(bot, message, dictuonaryStartCommand):
 
-    #обращение и считиывние slogStartCommand
-    #считывание данных  в словарь если словарь пуст 
-    #проверка команды старт .. если она есть в файле то не писать старт в файл= в startCommand
-
-    #TODO:сделать проверку словаря 
-
-    #если словарь пуст загрузить его из файла
     
-    
-    #если команла старт есть в словаре то разрешать чат.если нет то требрвать ввода команлы старт 
+    if dictuonaryStartCommand:
 
-    #при вводе писать старт и в словарь и в фвйл
+        #проверяем пользователя 
+        key=str(message.chat.id)
 
-    #словарь перенести в main
+        if key in dictuonaryStartCommand:
 
-    if checkUserUpdate:
+            return True
+            
+        else:
 
-        print("dictionary exists")
+            bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення :\n /start  ")
+
+            return False
 
     else:
 
-        print("dictionary does not exist")
+
+        linesFromFileCheckUpdate=[]
+
+        try:
+                
+            fileCheckUpdater=open("logs/logStartCommand.txt","r")
+
+            try:
+            
+                for line in fileCheckUpdater:
+                        
+                    #загружаем данные файла в массив строк
+                    linesFromFileCheckUpdate.append(line)
+
+            except Exception as e:
+                    print(repr(e))
+            
+        except Exception as ex:
+
+                print(repr(ex))
+            
+        finally:
+
+            fileCheckUpdater.close()
+
+        x=0
+
+        #проверяем что достало из файла 
+        #если записи есть то наполняем словарь инфой:
+        if len(linesFromFileCheckUpdate)>0:
+
+            while x<len(linesFromFileCheckUpdate):
+
+                #берем отдельную строку и распарсиваем для словаря  
+                indexID=linesFromFileCheckUpdate[x].split("=")
+                dictuonaryStartCommand[indexID[0]]=indexID[1]
+
+                x+=1
+
+            #проверяем пользователя 
+            key=str(message.chat.id)
+
+            if key in dictuonaryStartCommand:
+
+                return True
+            
+            else:
+
+                bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення :\n //start  ")
+
+                return False
+                
+
+        else:
+
+
+                    id=str(message.chat.id)
+                    firstName=str(message.from_user.first_name)
+                    lastName=str(message.from_user.last_name)
+                    name=firstName+" "+lastName
+
+                    #add new item in Dictuonary
+                    dictuonaryStartCommand[id]=name
+
+                    #add new item in file
+                    try:
+
+                        myFile=open("logs/logStartCommand.txt","a")
+
+                        try:
+
+                            myFile.write("{0}={1} {2}\n".format
+                                            (
+                                            id,
+                                            firstName,
+                                            lastName,
+                                            #currentTimeCreateLog,
+
+                                            ))
+
+    
+                        except Exception as e :
+
+                            print(repr(e))
+    
+                        finally:
+
+                            myFile.close()
+
+                    except Exception as ex:
+
+                        print(repr(ex))
+
+
+                    return True
 
 
