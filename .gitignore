@@ -260,5 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 env*/
-config.py
 logs/*.txt
+config.py
