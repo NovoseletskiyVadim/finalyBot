@@ -46,7 +46,7 @@ def main():
                                                 bot,
                                                 my_keyBoard,
                                                 InfoClass,
-                                                
+                                                checkUpdateDictuonary
                                                 )
 
    

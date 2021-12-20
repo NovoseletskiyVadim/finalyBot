@@ -15,7 +15,7 @@ from handlers import createTextMessageButtonHandler
 # обработчик всего входящего контента 
 
  
-def drugsMessageHundler(bot, my_keyBoard, array):
+def drugsMessageHundler(bot, my_keyBoard, array, commandStartDictuonary):
 
 
 
