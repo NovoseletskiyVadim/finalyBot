@@ -279,7 +279,6 @@ class logInputCommandStart :
 
         #dictuonary
         if checkDictuonary:
-            print("dictuonary is exist")
             
             key=str(self.id_chat)
 
