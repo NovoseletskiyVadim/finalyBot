@@ -1,6 +1,8 @@
 from classes import classes
 checkUser=classes.checkNewUser
 
+
+
 #check_status==True or False
 
 def addUser(message,check_status):
@@ -10,8 +12,9 @@ def addUser(message,check_status):
 
     user.addSaveNewUser(check_status)
 
-def checkUserUpdate(bot, message, dictuonaryStartCommand):
+def checkUserUpdate(bot, message, dictuonaryStartCommand,my_keyBoard):
 
+    button=my_keyBoard[4]
     
     if dictuonaryStartCommand:
 
@@ -24,8 +27,8 @@ def checkUserUpdate(bot, message, dictuonaryStartCommand):
             
         else:
 
-            bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення :\n /start  ")
-
+            bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення 👇 :\n /start  ",reply_markup=button)
+ 
             return False
 
     else:
@@ -78,8 +81,8 @@ def checkUserUpdate(bot, message, dictuonaryStartCommand):
             
             else:
 
-                bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення :\n /start  ")
-
+                bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення :\n /start  ",reply_markup=button)
+                
                 return False
                 
 
