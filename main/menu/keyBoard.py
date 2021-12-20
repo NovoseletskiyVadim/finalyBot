@@ -27,11 +27,15 @@ def myKeyBoard():
     buttonsGPS=markupGPS.row('⏩ пропустити відправку GPS')
 
     #[4]
+    markupStart = telebot.types.ReplyKeyboardMarkup(True, True)
+    buttonStart = markupStart.row("/start" )
+
+    #[5 /-3]
     markupText=telebot.types.ReplyKeyboardMarkup(True, True)
     buttonsText=markupText.row('❌ все відмінити та повернутися в головне меню')
     buttonsText=markupText.row('❇️ розпочати роботу')
 
-    #[5]
+    #[6 /-2]
     markupEND=types.ReplyKeyboardMarkup(resize_keyboard=False)
     item4=types.KeyboardButton("❌ все відмінити та повернутися в головне меню")
     item5=types.KeyboardButton("⏩ пропустити відправку GPS")
@@ -43,9 +47,9 @@ def myKeyBoard():
 
     
 
-    #[-1]
+    #[7 /-1]
     remove=types.ReplyKeyboardRemove()
 
-    all_buttons=[markup,markup_back,buttonsPhoto,buttonsGPS,markupText,markup_end, remove]
+    all_buttons=[markup,markup_back,buttonsPhoto,buttonsGPS,buttonStart,markupText,markup_end, remove]
 
     return all_buttons
