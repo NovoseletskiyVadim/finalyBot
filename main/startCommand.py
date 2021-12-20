@@ -46,14 +46,7 @@ def start(bot, my_keyBoard, array,mainDictuonary,blackDictuonary,checkUpdateDict
         addUser=checkNewUser(id, first_name, last_name)
         addUser.addSaveNewUser(checkResult)
 
-
-        # временная проверка состояния словаря
-        #print("====Check dictuonary====")
-
-        #for key in users:
-        #    print(key," - ",users[key])
-
-        
+ 
         
         m=0
         if len(array)!=0:
