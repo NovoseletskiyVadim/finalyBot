@@ -10,7 +10,7 @@ def photo_processing(bot, message, my_keyBoard, array):
                         
             my_keyBoard[-1]
                             
-            keyBoardGPS=my_keyBoard[5]
+            keyBoardGPS=my_keyBoard[-2]
 
             photo_id = message.photo[-1]
                         
@@ -32,7 +32,7 @@ def skip_photo(bot, message, my_keyBoard, array):
     
     my_keyBoard[-1]
                             
-    keyBoardEND=my_keyBoard[5]
+    keyBoardEND=my_keyBoard[-2]
 
     s=0
 
