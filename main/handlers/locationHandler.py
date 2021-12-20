@@ -19,10 +19,6 @@ def gps_processing(bot, message, my_keyBoard, array):
                     
             if array[q].id_chat==message.chat.id and array[q].blockName=="🔴 інформація про правопорушення" and array[q].textDrugs!=0 and array[q].photoDrugs!=0 and array[q].gpsAboutDrugs==0:
 
-                sti=open('sticker/mailGood.tgs', 'rb')
-                bot.send_sticker(config.Chanel_2,sti)
-                
-                
                 array[q].longitude=message.location.longitude
 
                 array[q].latitude=message.location.latitude
@@ -33,7 +29,10 @@ def gps_processing(bot, message, my_keyBoard, array):
 
                 timeMessage=datetime.now()
 
-                currentTimeMessage=timeMessage.strftime("%d/%m/%y %I:%M")
+                currentTimeMessage=timeMessage.strftime("%d/%m/%y %H:%M")
+
+                sti=open('sticker/mailGood.tgs', 'rb')
+                bot.send_sticker(config.Chanel_2,sti)
 
                 bot.send_message(config.Chanel_2, "{0}\n\n📅🕑={1}\n\n🔑={2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n ".format
                               (
@@ -112,7 +111,10 @@ def skipGPS(bot, message, my_keyBoard, array):
 
                 timeMessage=datetime.now()
 
-                currentTimeMessage=timeMessage.strftime("%d/%m/%y %I:%M")
+                currentTimeMessage=timeMessage.strftime("%d/%m/%y %H:%M")
+
+                sti=open('sticker/mailGood.tgs', 'rb')
+                bot.send_sticker(config.Chanel_2,sti)
 
                 bot.send_message(config.Chanel_2, "{0}\n\n 📅🕑={1}\n\n 🔑={2}\n\n {3}\n {4}\n\n {5}\n {6}\n\n {7}\n {8}\n\n".format
                                  (
