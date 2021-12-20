@@ -293,13 +293,13 @@ class logInputCommandStart :
             
             else:
 
-                id=self.message.chat.id
-                firstName=str(self.message.from_user.first_name)
-                lastName=str(self.message.from_user.last_name)
+                id=self.id_chat
+                firstName=str(self.firstName)
+                lastName=str(self.lastName)
                 name=firstName+" "+lastName
 
                 #add new item in Dictuonary
-                self.mainDictuonary[id]=name
+                checkDictuonary[id]=name
 
                 #add new item in file
                 try:
