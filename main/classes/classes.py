@@ -8,7 +8,6 @@ class InfoDrugs :
     def __init__(self, id_chat):
         
         self.id_chat=id_chat
-        #print("обьект {0} создан".format(self.id_chat))
 
         #time
 
@@ -20,7 +19,7 @@ class InfoDrugs :
             raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
         else:
 
-            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+            currentTimeCreateLog=now.strftime("%d/%m/%y %H:%M")
 
         #логирование создания
 
@@ -58,7 +57,7 @@ class InfoDrugs :
             raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
         else:
 
-            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+            currentTimeCreateLog=now.strftime("%d/%m/%y %H:%M")
 
         try:
             myFile=open("logs/logCreateForm.txt","a")
@@ -117,7 +116,7 @@ class checkNewUser :
             raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
         else:
 
-            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+            currentTimeCreateLog=now.strftime("%d/%m/%y %H:%M")
 
         
         #логирование ВЫЗОВА КОМАНДЫ "старт" и создание обьекта User для проверки 
@@ -158,7 +157,7 @@ class checkNewUser :
             raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
         else:
 
-            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+            currentTimeCreateLog=now.strftime("%d/%m/%y %H:%M")
 
         try:
             myFile=open("logs/logCheckUser.txt","a")
@@ -202,7 +201,7 @@ class checkNewUser :
             raise Exception("==WRONG!!== ДАТА НЕ ПРИСВОИЛАСЬ")
         else:
 
-            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+            currentTimeCreateLog=now.strftime("%d/%m/%y %H:%M")
 
 
         #логирование создания
@@ -264,8 +263,6 @@ class logInputCommandStart :
         self.firstName=firstName
         self.lastName=lastName
 
-        #TODO: сделать метод проверки файл словарь
-
      def checkCommandStart(self, checkDictuonary):
         #time
         now=0
@@ -277,9 +274,8 @@ class logInputCommandStart :
 
         else:
 
-            currentTimeCreateLog=now.strftime("%d/%m/%y %I:%M")
+            currentTimeCreateLog=now.strftime("%d/%m/%y %H:%M")
         
-        #TODO: если старт не логирован то..логировать 
 
         #dictuonary
         if checkDictuonary:
@@ -334,11 +330,6 @@ class logInputCommandStart :
                 return True
 
         else:
-            print("dictuonary doesn't exist")
-            #1.создать словарь из файла
-            #2. проверить есть ли команда старт этого пользов после глоб апдейта
-            #3. если нету то записать 
-
 
             linesFromFileCheckUpdate=[]
 
@@ -374,9 +365,7 @@ class logInputCommandStart :
 
                     #берем отдельную строку и распарсиваем для словаря  
                     indexID=linesFromFileCheckUpdate[x].split("=")
-                    print("indexID=",indexID)
                     checkDictuonary[indexID[0]]=indexID[1]
-                    print("checkDictuonary=",checkDictuonary)
 
                     x+=1
 
@@ -473,8 +462,6 @@ class logInputCommandStart :
 
                     return True
 
-        
-
 class checkDictuonary :
 
     def __init__(
@@ -491,10 +478,6 @@ class checkDictuonary :
     
     
     def checkNewUserDictuonaty(self):
-
-        # TODO: сделать провверку есть ли в словаре какая то запись
-        # если нету то загрузить  из файла всех пользователей и проверить
-        # нового пользователя по всем параметрам
 
         if self.mainDictuonary:
 
@@ -563,7 +546,6 @@ class checkDictuonary :
 
                     i+=1
 
-                #TODO: выполнить проверку пользователя после загрузки слваря 
                 key=str(self.message.chat.id)
 
 
@@ -588,9 +570,7 @@ class checkDictuonary :
                     return True
 
 
-                #print("======= тест загрузки словаря ==============")
-                #for key in self.mainDictuonary:
-                #    print(key+"="+self.mainDictuonary[key])
+                
 
             #если файл "dictuonary.txt" был изначально пустой делаем сначала запись в словарь и возвращ флаг
             else:
