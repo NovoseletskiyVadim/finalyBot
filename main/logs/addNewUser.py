@@ -81,7 +81,7 @@ def checkUserUpdate(bot, message, dictuonaryStartCommand,my_keyBoard):
             
             else:
 
-                bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення :\n /start  ",reply_markup=button)
+                bot.send_message(message.chat.id,"🟡 Увага ❗️❗️❗️ \n\n🔺 Ми зробили певні оновлення у функціях.\nℹ️ Для продовження роботи відправте повідомлення 👇 :\n /start  ",reply_markup=button)
                 
                 return False
                 
